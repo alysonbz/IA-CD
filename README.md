@@ -1,2 +1,2 @@
-# IA-CD
-Repositorio da disciplina de inteligência artificial de ciência de dados
+# IA
+Repositório destinado ao desenvolvimento de trabalhos relacionados a disciplina de inteligência artificial da Universidade Federal Do Ceará

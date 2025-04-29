@@ -10,5 +10,5 @@ volunteer = volunteer.dropna(axis=1)
 volunteer = volunteer.dropna()
 #fazendo as contagens de colunas nan
 print(volunteer.isna().sum())
-#mostrando shape
+#mostrando shape.
 print(f'esse é o shape = {volunteer.shape}')

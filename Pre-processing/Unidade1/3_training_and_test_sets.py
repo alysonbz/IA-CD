@@ -25,4 +25,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_sta
 
 
 # mostre o balanceamento das classes em 'category_desc' novamente
+print(y["category_desc"].value_counts())
+print("______________________________________")
 print(y_train["category_desc"].value_counts())
+print("______________________________________")
+print(y_test["category_desc"].value_counts())

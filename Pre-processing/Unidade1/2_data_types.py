@@ -6,7 +6,7 @@ volunteer = load_volunteer_dataset()
 ___
 
 # Print as caracteristicas da coluna hits
-__
+___
 
 # Converta a coluna hits para o tipo int
 ___

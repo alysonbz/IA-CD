@@ -6,18 +6,18 @@ volunteer = load_volunteer_dataset()
 
 
 #mostre os tipos de dados existentes no dataset
-#print(volunteer.info())
+
 
 #mostre quantos elementos do dataset estão faltando na coluna
 
 
 # Exclua as colunas Latitude e Longitude de volunteer
-volunteer_cols
+volunteer_cols =
 
 # Exclua as linhas com valores null da coluna category_desc de volunteer_cols
 volunteer_subset =
 
 # Print o shape do subset
-
+print(volunteer_subset.shape)
 
 

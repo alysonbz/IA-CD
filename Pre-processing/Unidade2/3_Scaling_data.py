@@ -1,39 +1,38 @@
-# Import StandardScaler
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from src.utils import load_wine_dataset
 from sklearn.neighbors import KNeighborsClassifier
 import pandas as pd
 
-
+# Carregar o dataset
 wine = load_wine_dataset()
 
-# Inicializer o scale
+# Inicializar o scaler
 scaler = StandardScaler()
 
-# exclua do dataset a coluna
-X = wine.drop(['Quality'],axis=1)
+# Excluir a coluna 'Quality' para separar os atributos
+X = wine.drop(['Quality'], axis=1)
 
-#normalize o dataset com scaler
+# Normalizar o dataset
 X_norm = scaler.fit_transform(X)
 
-#obtenha as labels da coluna Quality
-y = wine[''].__
+# Obter as labels (rótulos)
+y = wine['Quality']
 
-#print a valriância de X
-print('variancia',__)
+# Print da variância original de X
+print('Variância:', X.var())
 
-#print a variânca do dataset X_norm
-print('variancia do dataset normalizado',__)
+# Print da variância após normalização
+print('Variância do dataset normalizado:', pd.DataFrame(X_norm).var())
 
-# Divida o dataset em treino e teste com amostragem estratificada
-X_train, X_test, y_train, y_test = ___(___, __, ___, random_state=42)
+# Dividir os dados com estratificação
+X_train, X_test, y_train, y_test = train_test_split(X_norm, y, test_size=0.2, stratify=y, random_state=42)
 
-#inicialize o algoritmo KNN
-knn = ___
+# Inicializar o KNN
+knn = KNeighborsClassifier()
 
-# Aplique a função fit do KNN
-knn.__(__,__)
+# Treinar o modelo
+knn.fit(X_train, y_train)
 
-# Verifique o acerto do classificador
-print('score', knn.__(__, __))
+# Avaliar o modelo
+print('Score:', knn.score(X_test, y_test))

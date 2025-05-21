@@ -11,7 +11,8 @@ y = wine['Quality'].values
 # divida o dataset em treino e teste
 X_train, X_test, y_train, y_test = ____(____, ____, stratify=____, random_state=42)
 
-knn = KNeighborsClassifier()
+knn = KNeighborsClassi
+fier()
 
 # Aplique a função fit do knn
 knn.____(____, ____)

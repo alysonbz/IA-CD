@@ -128,7 +128,7 @@ B: www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data
 
 ---
 
-## 📈 Parte B – Regressão
+## Parte B – Regressão
 
 ### Questão 1 – Pré-processamento e Correlação  
 **Arquivo:** `regressao_q1.py`

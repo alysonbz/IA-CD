@@ -182,6 +182,6 @@ B: www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data
 
 **Dúvidas :** alysonbnr@ufc.br   
 
-**Prazo final - para envio do relatório código:**  16-06-2025
+**Prazo final - para envio do relatório e código:**  16-06-2025
 
 **Prazo final para apresentação em PPT:**  18-06-2025

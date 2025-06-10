@@ -2,21 +2,40 @@ import numpy as np
 from src.utils import load_sales_clean_dataset
 from sklearn.linear_model import LinearRegression
 
-
 class KFold:
 
    def __init__(self,n_splits):
-
        self.n_splits = n_splits
 
-   def _compute_score(self,X,y):
-       return None
+   def train_test_split(self,X, y):
+       X_train, X_test, y_train, y_test = None
+       return X_train, X_test, y_train, y_test
+
+   def _compute_score(self,X,y,obj):
+       pred = obj.predict(X)
+       var_pred = np.sum(np.square((pred - np.mean(y))))
+       var_data = np.sum(np.square((y - np.mean(y))))
+       r_squared = np.divide(var_pred, var_data)
+       return r_squared
 
    def cross_val_score(self,obj,X, y):
-
         scores = []
+        x_train_n = []
+        y_train_n = []
+        x_test_n = []
+        y_test_n = []
+
+        # Parte 0: embaralhar
+        X = np.random.shuffle(X)
+        y = np.random.shuffle(y)
 
         # parte 1: dividir o dataset X em n_splits vezes
+        for n in range(0, self.n_splits):
+            X_train, X_test, y_train, y_test = self.train_test_split(X,y)
+            x_train_n.append(X_train)
+            x_test_n.append(X_test)
+            y_train_n.append(y_train)
+            y_test_n.append(y_test)
 
         # parte 2: Calcular a métrica score para subset dividida na parte 1. Chamar a função _compute_score para cada subset
 

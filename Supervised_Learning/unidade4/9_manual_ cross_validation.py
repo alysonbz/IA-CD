@@ -1,23 +1,91 @@
+import random
+
 import numpy as np
+#from sklearn.model_selection import train_test_split
+import pandas as pd
+#from sklearn.model_selection import train_test_split
+
 from src.utils import load_sales_clean_dataset
 from sklearn.linear_model import LinearRegression
 
-
+sales_df = load_sales_clean_dataset()
+df = pd.DataFrame(sales_df)
 class KFold:
-
-   def __init__(self,n_splits):
+    def __init__(self,n_splits):
 
        self.n_splits = n_splits
 
-   def _compute_score(self,X,y):
-       return None
 
-   def cross_val_score(self,obj,X, y):
+    def _compute_score(self,X,y,obj):
+       pred = obj.predict(X)
+       var_pred = np.sum(np.square(predictions=np.mean(y)))
+       var_data = np.sum(np.square(y - np.mean(y)))
+       r_squared = np.divide(var_pred,var_data)
+       return r_squared
+
+    # Create X and y arrays
+    X = sales_df.drop(["sales", "influencer"], axis=1)
+    y = sales_df["sales"].values
+
+
+    def _train_test_split(self,X,y):
+        # Cria variaveis para X,y(Train e test)
+        X_test = []
+        y_test = []
+        X_train = []
+        y_train = []
+
+        # Calcula o tamanho total para saber o tamanho do test
+        X_len = len(X)
+        y_len = len(y)
+        X_test_len = int(X_len*0.3)
+        y_test_len = int(y_test*0.3)
+
+        # Filtra o dataset
+
+        X_test = X_test[X_test_len:]
+        y_test = y_test[y_test_len:]
+        X_train = X.loc[:X_test_len]
+        y_train = y.loc[:y_test_len]
+        return X_train,X_test,y_train,y_test
+    def cross_val_score(self,obj,X, y):
 
         scores = []
 
-        # parte 1: dividir o dataset X em n_splits vezes
 
+        # Criar funcao de divisao em 6 o dataset
+        def divisao():
+            tam_total = len(sales_df)
+            tam_divisao = tam_total/self.n_splits
+            subsets = []
+
+            for i in self.n_splits:
+                subset_novo = subsets.append(sales_df.loc[tam_divisao*(i):tam_divisao*(i+1)])
+
+                subsets.append(subset_novo)
+
+            return subsets
+        # parte 0: Embaralhar o dataset
+        random.shuffle(sales_df)
+        # Parte 1. Piloto (dividir):
+        lista_subsets = divisao()
+
+        # parte 1: Aplicar treino e test para cada subset
+        x_train_n = []
+        y_train_n = []
+        x_test_n = []
+        y_test_n = []
+
+        dic = {
+            'x': [x_test_n,x_train_n],
+            'y': [y_train_n,y_test_n]
+        }
+        for i in lista_subsets:
+            X_train, X_test, y_train,y_test = self._train_test_split(X,y)
+            x_train_n.append(X_train)
+            y_train_n.append(y_train)
+            x_test_n.append(X_test)
+            y_test_n.append(y_test)
         # parte 2: Calcular a métrica score para subset dividida na parte 1. Chamar a função _compute_score para cada subset
 
         #appendar na lista scores cada valor obtido na parte 2

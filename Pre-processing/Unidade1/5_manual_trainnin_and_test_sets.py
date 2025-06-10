@@ -8,9 +8,9 @@ def train_test_split(X,y,df_stratify,test_size,random_seed=1):
     train_idx = []
     test_idx = []
 
-    for classe in y['category_desc'].unique():
+    for classe in df_stratify['category_desc'].unique():
         #embaralhando por classe
-        indices_classe = y[y['category_desc'] == classe].index.to_numpy()
+        indices_classe = df_stratify[df_stratify['category_desc'] == classe].index.to_numpy()
         np.random.shuffle(indices_classe)
 
         #definindo o tamanho de amostra da classe especifica em total e em test

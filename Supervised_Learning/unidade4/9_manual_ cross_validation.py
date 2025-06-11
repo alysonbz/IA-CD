@@ -1,25 +1,44 @@
 import numpy as np
+from fontTools.misc.cython import returns
+
 from src.utils import load_sales_clean_dataset
 from sklearn.linear_model import LinearRegression
 
 
 class KFold:
 
-   def __init__(self,n_splits):
+    def __init__(self,n_splits):
 
        self.n_splits = n_splits
 
-   def _compute_score(self,X,y):
-       return None
 
-   def cross_val_score(self,obj,X, y):
+    def compute_R_squared(self, predictions, y):
+        var_pred = np.sum(np.square(predictions - np.mean(y)))
+        var_data= np.sum(np.square(y - np.mean(y)))
+        r_squared = np.divide(var_pred, var_data)
+        return r_squared
+
+    def _compute_score(self, X_val, y_val, model):
+        predictions = model.predict(X_val)
+        return self.compute_R_squared(predictions, y_val)
+
+
+    def cross_val_score(self,obj,X, y):
 
         scores = []
 
         # parte 1: dividir o dataset X em n_splits vezes
+        X_n = []
+        y_n= []
+
+        for n in range(0, self.n_splits):
+            X_train, X_test, y_train, y_test = self.train_test_split(X, y)
+            x_train_n.append(X_train)
+            y_train_n.apprend(y_train)
 
         # parte 2: Calcular a métrica score para subset dividida na parte 1. Chamar a função _compute_score para cada subset
 
+        x._compute_score
         #appendar na lista scores cada valor obtido na parte 2
 
         #parte 3 - retornar a lista de scores

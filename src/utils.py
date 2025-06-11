@@ -4,7 +4,8 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LinearRegression , LogisticRegression
 from sklearn.model_selection import train_test_split
 
-
+def load_cancer_dataset():
+    return pd.read_csv('/home/daniel/IA-CD/AV1/dataset/Cancer_Data.csv')
 
 def load_volunteer_dataset():
     return pd.read_csv('../dataset/opportunities.csv')

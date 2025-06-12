@@ -54,7 +54,7 @@ Madson:
 
 A: https://www.kaggle.com/datasets/whenamancodes/predict-diabities
 
-B: https://www.kaggle.com/datasets/anas123k/startup-profit-prediction
+B: https://www.kaggle.com/datasets/maajdl/yeh-concret-data
 
 
 Silas e Rick:

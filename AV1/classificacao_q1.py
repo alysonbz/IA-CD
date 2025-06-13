@@ -18,9 +18,17 @@ plt.xlabel('Rating')
 plt.ylabel('Frequência')
 plt.show()
 
-# 4.avaliar variaveis categóricas
+# 4.codificar variaveis categóricas
 categorical_cols = ['Company \n(Maker-if known)', 'Specific Bean Origin\nor Bar Name',
                     'Cocoa\nPercent', 'Company\nLocation']
+
+# Agrupar categorias raras em "Outros"
+threshold = 20  # ajustar conforme necessidade
+for col in categorical_cols:
+    counts = df[col].value_counts()
+    to_replace = counts[counts < threshold].index
+    df[col] = df[col].replace(to_replace, 'Outros')
+
 # Aplicar codificação one-hot para as variáveis categóricas
 df_encoded = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
 print(df_encoded.head())
@@ -30,6 +38,6 @@ print("\nEstatísticas descritivas:")
 print(df_encoded.describe())
 
 # 6. Salvar o arquivo ajustado
-df_encoded.to_csv("classificacao_ajustado.csv", index=False)
+#df_encoded.to_csv("classificacao_ajustado.csv", index=False)
 
 

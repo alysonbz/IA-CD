@@ -15,6 +15,10 @@ df2 = load_df2_unidade1()
 # print(df1.dropna(subset=["B"]))
 # print(df1.dropna(thresh=2))
 
+<<<<<<< HEAD
 print(df2.info())
 df2["C"] = df2["C"].astype("int64")
 print(df2.info())
+=======
+print(wine.describe())
+>>>>>>> 360b412b54f5b63b0a5f4a0a712e59529a54e83b

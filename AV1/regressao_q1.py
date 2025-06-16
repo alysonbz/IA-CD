@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
 # 1. Carregando dataset (sem mexer nas colunas ainda)
-df = pd.read_csv("C:/Users/jfm12/Downloads/nivaldo/IA-CD/AV1/dataset/CarPrice_Assignment.csv")
+df = pd.read_csv("IA-CD/AV1/bancos/CarPrice_Assignment.csv")
 print(df.head(), '\n')
 print(df.shape)
 

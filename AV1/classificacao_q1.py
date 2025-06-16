@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # 1. Carregando o dataset
-df = pd.read_csv("C:/Users/jfm12/Downloads/nivaldo/IA-CD/AV1/dataset/chocolate.csv")
+df = pd.read_csv("IA-CD/AV1/bancos/flavors_of_cacao.csv")
 print(df.head(), '\n')
 
 # ajeitando erros de formatação

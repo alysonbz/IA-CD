@@ -164,4 +164,3 @@ def knn_predict(X_train, y_train, x_test, k):
 x_novo = np.array([5.0, 3.5])
 classe_predita = knn_predict(X, y, x_novo, k=5)
 print(f"Classe prevista: {classe_predita}")
-

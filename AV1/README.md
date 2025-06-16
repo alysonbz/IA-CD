@@ -81,7 +81,7 @@ B: www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data
 3. Analise a distribuição da variável-alvo.  
 4. Codifique variáveis categóricas, se necessário.  
 5. Faça uma análise estatística exploratória
-5. Salve o arquivo como `classificacao_ajustado.csv`.
+6. Salve o arquivo como `classificacao_ajustado.csv`.
 
 ---
 

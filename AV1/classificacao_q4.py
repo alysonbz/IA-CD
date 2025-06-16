@@ -50,7 +50,8 @@ plt.bar(
 plt.title("Top 3 configurações - GridSearchCV KNN")
 plt.ylabel("Acurácia Média (CV)")
 plt.tight_layout()
-=plt.show()
+plt.show()
 
 top3.reset_index(drop=True, inplace=True)
-import ace_tools as tools; tools.display_dataframe_to_user(name="Top 3 Configurações - KNN com GridSearchCV", dataframe=top3)
+print("Top 3 configurações -KNN com GridSearchCV")
+print(top3)

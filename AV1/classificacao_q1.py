@@ -17,6 +17,17 @@ df.rename(columns={"Age": "Idade",
                      "Drug": "Medicamento"}, inplace=True)
 print("________________________________________________________")
 
+Medicamento = {
+    'DrugY' : 0,
+    'drugX' : 1,
+    'drugA': 2,
+    'drugC' : 3,
+    'drugB' : 4,
+
+    }
+
+df['Medicamento'] = df['Medicamento'].map(Medicamento)
+
 #Mostrando as 5 primeiras linhas e as informações dele
 print(df.head())
 print(df.info())
@@ -29,10 +40,6 @@ print("________________________________________________________")
 #Analisando as medidas estatísticas da variáveis quantitativas
 
 print(df.describe())
-print("________________________________________________________")
-
-#Analisando quantos medicamentos diferentes tem
-print(df['Medicamento'].head())
 print("________________________________________________________")
 
 #Contagem de quantas amostras são do sexo masculino e feminino
@@ -51,12 +58,6 @@ print("________________________________________________________")
 print(df["Colesterol"].value_counts())
 print("\n")
 print(df["Colesterol"].value_counts(normalize=True))
-print("________________________________________________________")
-
-#Contagem de quantas amostras são y, x, a, b e c
-print(df["Medicamento"].value_counts())
-print("\n")
-print(df["Medicamento"].value_counts(normalize=True))
 print("________________________________________________________")
 
 #Verificando a idade máxima e a mínima

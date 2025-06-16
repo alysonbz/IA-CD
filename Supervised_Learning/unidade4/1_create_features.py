@@ -1,16 +1,14 @@
 import numpy as np
 from src.utils import load_sales_clean_dataset
 
+# Carrega o dataset
 sales_df = load_sales_clean_dataset()
 
-# Create X from the radio column's values
-X = ____
+# Cria X a partir da coluna 'radio'
+X = sales_df['radio'].values.reshape(-1, 1)  # reshape para virar matriz (necessário para modelos do sklearn)
 
-# Create y from the sales column's values
-y = ____
+# Cria y a partir da coluna 'sales'
+y = sales_df['sales'].values  # vetor unidimensional
 
-# Reshape X
-X = ____
-
-# Check the shape of the features and targets
-print(____)
+# Verifica as dimensões de X e y
+print(X.shape, y.shape)

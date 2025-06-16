@@ -2,10 +2,13 @@ from src.utils import load_wine_dataset
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 import numpy as np
+from sklearn.preprocessing import StandardScaler
 wine = load_wine_dataset()
 
+scaler = StandardScaler()
+
 X = wine.drop(['Quality'],axis=1)
-X = np.log(X)
+X = scaler.fit_transform(X)
 y = wine['Quality'].values
 
 # divida o dataset em treino e teste

@@ -33,7 +33,7 @@ Eryka:
 
 A: https://www.kaggle.com/datasets/uciml/mushroom-classification
 
-B:  https://www.kaggle.com/datasets/aungpyaeap/fish-market
+B:  https://www.kaggle.com/datasets/vipullrathod/fish-market
 
  
 

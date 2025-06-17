@@ -4,11 +4,11 @@ from sklearn.model_selection import train_test_split
 sales_df = load_sales_clean_dataset()
 
 # Import mean_squared_error
-from ____.____ import ____
+from sklearn.metrics import mean_squared_error
 
 # Create X and y arrays
 X = sales_df.____(["____","___" ],axis=____)
-y = sales_df["____"].____
+y = sales_df["____"].values
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 

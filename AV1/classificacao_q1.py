@@ -72,7 +72,7 @@ print("________________________________________________________")
 
 #Plotando um gráfico para saber a distribuição de frequência dos medicamentos
 plt.hist(df['Medicamento'], bins=4, color='blue', edgecolor='black')
-plt.title('Histograma usando o Matplotlib')
+plt.title('Histograma de medicamento')
 plt.xlabel('Medicamento')
 plt.ylabel('Frequência')
 plt.show()

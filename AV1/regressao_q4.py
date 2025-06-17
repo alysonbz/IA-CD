@@ -2,23 +2,24 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import Lasso
 
-# Carrega os dados
-df = pd.read_csv("regressao_ajustado.csv")
-X = df.drop(columns=['Weight'])
+# Carregar dataset ajustado
+df = pd.read_csv('regressao_ajustado.csv')
+
+X = df.drop('Weight', axis=1)
 y = df['Weight']
 
-# Treina o modelo Lasso
-modelo = Lasso(alpha=0.1)
-modelo.fit(X, y)
+# Treinar Lasso
+lasso = Lasso()
+lasso.fit(X, y)
 
 # Coeficientes
-coeficientes = pd.Series(modelo.coef_, index=X.columns)
-print("Coeficientes da Lasso:\n", coeficientes)
+coef = pd.Series(lasso.coef_, index=X.columns)
 
-# Gráfico de importância
-coeficientes.sort_values().plot(kind='barh')
-plt.title("Importância dos Atributos (Lasso)")
-plt.xlabel("Coeficiente")
-plt.tight_layout()
-plt.savefig("lasso_importancia.png")
-plt.close()
+# Mostrar coeficientes relevantes
+print("Coeficientes Lasso:")
+print(coef)
+
+# Plotar importância
+coef.plot(kind='bar')
+plt.title('Importância dos atributos pelo Lasso')
+plt.show()

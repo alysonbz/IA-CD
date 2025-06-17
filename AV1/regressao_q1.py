@@ -1,33 +1,31 @@
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler
+import numpy as np
 
-# Carrega o dataset
-df = pd.read_csv("fish.csv")
+# Carregar dataset
+df = pd.read_csv('/root/.cache/kagglehub/datasets/vipullrathod/fish-market/versions/1/Fish.csv')
 
-# Verifica valores ausentes
-print(df.isnull().sum())
+# Tratar valores ausentes (se houver)
+df.dropna(inplace=True)
 
-# One-hot encoding na coluna 'Species'
-df = pd.get_dummies(df, columns=['Species'], drop_first=True)
+# Remover coluna categórica antes da correlação
+df_numeric = df.select_dtypes(include=[np.number])
 
-# Calcula a correlação com o peso
-correlacoes = df.corr()['Weight'].sort_values(ascending=False)
-print("Correlação com o peso:\n", correlacoes)
+# Verificar correlação com variável alvo 'Weight'
+correlation = df_numeric.corr()['Weight'].sort_values(ascending=False)
+print("Correlação das variáveis numéricas com Weight:")
+print(correlation)
 
-# Matriz de correlação
-plt.figure(figsize=(10, 8))
-sns.heatmap(df.corr(), annot=True, fmt=".2f", cmap="coolwarm")
-plt.title("Matriz de Correlação")
-plt.tight_layout()
-plt.savefig("correlacao_matriz.png")
-plt.close()
+# Normalizar dados (excluindo variável alvo)
+from sklearn.preprocessing import MinMaxScaler
 
-# Normalização com StandardScaler
-scaler = StandardScaler()
-colunas_numericas = df.drop(columns=['Weight']).columns
-df[colunas_numericas] = scaler.fit_transform(df[colunas_numericas])
+X = df_numeric.drop('Weight', axis=1)
+y = df_numeric['Weight']
 
-# Salva dataset ajustado
-df.to_csv("regressao_ajustado.csv", index=False)
+scaler = MinMaxScaler()
+X_normalized = pd.DataFrame(scaler.fit_transform(X), columns=X.columns)
+
+# Juntar variável alvo
+df_normalized = pd.concat([X_normalized, y.reset_index(drop=True)], axis=1)
+
+# Salvar arquivo ajustado
+df_normalized.to_csv('regressao_ajustado.csv', index=False)

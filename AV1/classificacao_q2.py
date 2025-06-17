@@ -1,39 +1,52 @@
 import pandas as pd
 import numpy as np
+from scipy.spatial.distance import euclidean, cityblock, chebyshev, mahalanobis
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from collections import Counter
-from scipy.spatial import distance
 
-# 1. Carregar dados
-df = pd.read_csv("classificacao_ajustado.csv")
-X = df.drop("class", axis=1).values
-y = df["class"].values
+# Carregar os dados
+df = pd.read_csv('classificacao_ajustado.csv')
 
-# 2. Dividir em treino e teste
+# Separar variáveis
+X = df.drop(columns=['class_e'])
+y = df['class_e']  # classe 'e' é venenoso
+
+# Dividir treino/teste
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-# 3. Função KNN
-def knn(X_train, y_train, X_test, k, dist_func):
-    predictions = []
-    for test_point in X_test:
-        distances = [dist_func(test_point, x) for x in X_train]
-        k_idx = np.argsort(distances)[:k]
-        k_labels = y_train[k_idx]
-        most_common = Counter(k_labels).most_common(1)[0][0]
-        predictions.append(most_common)
-    return predictions
+# Preparar arrays
+X_train_np = X_train.to_numpy()
+X_test_np = X_test.to_numpy()
+y_train = y_train.reset_index(drop=True)
+y_test = y_test.reset_index(drop=True)
 
-# 4. Funções de distância
-distancias = {
-    "euclidiana": lambda a, b: np.linalg.norm(a - b),
-    "manhattan": lambda a, b: distance.cityblock(a, b),
-    "chebyshev": lambda a, b: distance.chebyshev(a, b),
-    "mahalanobis": lambda a, b: distance.mahalanobis(a, b, np.linalg.inv(np.cov(X_train.T)))
+# Calcular matriz inversa da covariância para Mahalanobis
+VI = np.linalg.inv(np.cov(X_train_np.T) + np.eye(X_train_np.shape[1]) * 1e-6)
+
+# Função KNN manual
+def knn(X_train, y_train, X_test, k, metric, VI=None):
+    y_pred = []
+    for test_point in X_test:
+        if metric == mahalanobis:
+            dists = [metric(test_point, x, VI) for x in X_train]
+        else:
+            dists = [metric(test_point, x) for x in X_train]
+        k_indices = np.argsort(dists)[:k]
+        k_labels = y_train.iloc[k_indices]
+        majority = Counter(k_labels).most_common(1)[0][0]
+        y_pred.append(majority)
+    return np.array(y_pred)
+
+# Avaliação com diferentes métricas
+metricas = {
+    'Euclidiana': euclidean,
+    'Manhattan': cityblock,
+    'Chebyshev': chebyshev,
+    'Mahalanobis': lambda u, v: mahalanobis(u, v, VI)
 }
 
-# 5. Avaliação
-for nome, func in distancias.items():
-    y_pred = knn(X_train, y_train, X_test, k=5, dist_func=func)
+for nome, metrica in metricas.items():
+    y_pred = knn(X_train_np, y_train, X_test_np, k=5, metric=metrica)
     acc = accuracy_score(y_test, y_pred)
-    print(f"Acurácia usando distância {nome}: {acc:.4f}")
+    print(f"Acurácia com {nome}: {acc:.4f}")

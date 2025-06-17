@@ -1,62 +1,49 @@
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import MinMaxScaler, StandardScaler
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
 from sklearn.metrics import accuracy_score
-from collections import Counter
 import matplotlib.pyplot as plt
 
-# Carregar dados
-df = pd.read_csv("classificacao_ajustado.csv")
-X = df.drop("class", axis=1)
-y = df["class"]
+# Carregar o dataset
+df = pd.read_csv('/kaggle/input/mushroom-classification/mushrooms.csv')
 
-# Aplicar normalizações
-X_log = X.apply(lambda x: np.log1p(x))
-X_minmax = MinMaxScaler().fit_transform(X)
-X_std = StandardScaler().fit_transform(X)
+# Tratar valores ausentes
+df.replace('?', np.nan, inplace=True)
+df.dropna(inplace=True)
 
-datasets = {
-    "Original": X.values,
-    "Log": X_log.values,
-    "MinMax": X_minmax,
-    "Standard": X_std
+# Separar variável alvo e codificar variáveis categóricas
+y = df['class'].map({'p': 0, 'e': 1})  # Exemplo de codificação binária
+X = pd.get_dummies(df.drop('class', axis=1)).astype(float)
+
+# Dividir em treino e teste
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Função KNN manual usando numpy (distância Euclidiana)
+def knn(X_train, y_train, X_test, k=5):
+    y_pred = []
+    for test_point in X_test:
+        dists = np.linalg.norm(X_train - test_point, axis=1)
+        k_indices = np.argsort(dists)[:k]
+        k_labels = y_train.iloc[k_indices]
+        y_pred.append(k_labels.mode()[0])
+    return y_pred
+
+# Normalizações
+normalizacoes = {
+    "Sem Normalização": (lambda x: x),
+    "MinMax": MinMaxScaler(),
+    "Standard": StandardScaler()
 }
 
-# Função KNN
-def knn(X_train, y_train, X_test, k):
-    pred = []
-    for test in X_test:
-        dist = np.linalg.norm(X_train - test, axis=1)
-        idx = np.argsort(dist)[:k]
-        voto = Counter(y_train[idx]).most_common(1)[0][0]
-        pred.append(voto)
-    return pred
+for nome, normalizador in normalizacoes.items():
+    if nome == "Sem Normalização":
+        X_train_n = X_train.values
+        X_test_n = X_test.values
+    else:
+        X_train_n = normalizador.fit_transform(X_train)
+        X_test_n = normalizador.transform(X_test)
 
-# Avaliar normalizações
-for nome, dados in datasets.items():
-    X_train, X_test, y_train, y_test = train_test_split(dados, y, test_size=0.3, random_state=42)
-    y_pred = knn(X_train, y_train.values, X_test, 5)
+    y_pred = knn(X_train_n, y_train, X_test_n, k=5)
     acc = accuracy_score(y_test, y_pred)
-    print(f"Acurácia ({nome}): {acc:.4f}")
-
-# Avaliação para diferentes valores de k
-X_train, X_test, y_train, y_test = train_test_split(X_std, y, test_size=0.3, random_state=42)
-train_acc = []
-test_acc = []
-ks = range(1, 21)
-
-for k in ks:
-    train_pred = knn(X_train, y_train.values, X_train, k)
-    test_pred = knn(X_train, y_train.values, X_test, k)
-    train_acc.append(accuracy_score(y_train, train_pred))
-    test_acc.append(accuracy_score(y_test, test_pred))
-
-# Plotar gráfico
-plt.plot(ks, train_acc, label="Treino")
-plt.plot(ks, test_acc, label="Teste")
-plt.xlabel("k")
-plt.ylabel("Acurácia")
-plt.title("Acurácia x K")
-plt.legend()
-plt.savefig("knn_k_vs_acc.png")
+    print(f"Acurácia com {nome}: {acc:.4f}")

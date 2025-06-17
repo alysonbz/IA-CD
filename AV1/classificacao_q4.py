@@ -1,35 +1,42 @@
 import pandas as pd
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
-from sklearn.model_selection import GridSearchCV
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
+from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("classificacao_ajustado.csv")
-X = df.drop("class", axis=1)
-y = df["class"]
+# Carregar dados
+df = pd.read_csv('classificacao_ajustado.csv')
+X = df.drop(columns=['class_e'])
+y = df['class_e']
 
+# Dividir treino/teste
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Normalizações
 scalers = {
-    "MinMax": MinMaxScaler(),
-    "Standard": StandardScaler(),
-    "Nenhum": None
+    'MinMax': MinMaxScaler(),
+    'Standard': StandardScaler(),
 }
 
-resultados = []
+# Parâmetros
+param_grid = {'n_neighbors': list(range(1, 21))}
+
+resultados = {}
 
 for nome, scaler in scalers.items():
-    X_norm = scaler.fit_transform(X) if scaler else X
-    model = KNeighborsClassifier()
-    grid = GridSearchCV(model, {"n_neighbors": list(range(1, 21))}, cv=5)
-    grid.fit(X_norm, y)
-    melhores = grid.best_params_['n_neighbors']
-    acc = grid.best_score_
-    resultados.append((nome, acc, melhores))
+    X_train_s = scaler.fit_transform(X_train)
+    X_test_s = scaler.transform(X_test)
+    knn = KNeighborsClassifier()
+    grid = GridSearchCV(knn, param_grid, cv=5)
+    grid.fit(X_train_s, y_train)
+    resultados[nome] = grid
 
-# Plot dos resultados
-labels = [x[0] for x in resultados]
-scores = [x[1] for x in resultados]
+# Plotar melhores resultados
+for nome, grid in resultados.items():
+    print(f"{nome} - Melhor K: {grid.best_params_['n_neighbors']}, Acurácia: {grid.best_score_:.4f}")
 
-plt.bar(labels, scores)
-plt.title("Acurácia por Normalização")
+scores = [grid.best_score_ for grid in resultados.values()]
+plt.bar(resultados.keys(), scores)
+plt.title("Melhores configurações - Acurácia Média")
 plt.ylabel("Acurácia")
-plt.savefig("gridsearch_knn_resultados.png")
+plt.show()

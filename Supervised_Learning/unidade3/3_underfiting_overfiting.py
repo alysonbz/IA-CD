@@ -12,13 +12,13 @@ y = churn_df["churn"].values
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
 # Create neighbors
-neighbors = np.arange(____, ____)
+neighbors = np.arange(1, 12)
 train_accuracies = {}
 test_accuracies = {}
 
 for neighbor in neighbors:
     # Set up a KNN Classifier
-    knn = ____(____=____)
+    knn = KNeighborsClassifier(n_neighbors=12)
 
     # Fit the model
     knn.____(____, ____)

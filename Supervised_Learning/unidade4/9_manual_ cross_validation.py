@@ -9,6 +9,14 @@ class KFold:
 
        self.n_splits = n_splits
 
+def compute_R_squared(self, predictions, y):
+    RSS = np.sum((y - predictions) ** 2)
+    TSS = np.sum((y - np.mean(y)) ** 2)
+    r_squared = 1 - (RSS / TSS)
+    return r_square
+
+def train_test_split(self, )
+
    def _compute_score(self,X,y):
        return None
 
@@ -16,7 +24,15 @@ class KFold:
 
         scores = []
 
+        # parte 0: Embaralhar o dataset
+
+
+
         # parte 1: dividir o dataset X em n_splits vezes
+        for n in range(0,self.n_splits):
+            X_train, X_test, y_train, y_test = self.train_test_split(X,y)
+            x_train_n.append(X_train)
+            y_train_n.append(y_train)
 
         # parte 2: Calcular a métrica score para subset dividida na parte 1. Chamar a função _compute_score para cada subset
 

@@ -10,19 +10,20 @@ y = sales_df["sales"].values
 
 
 #Create a KFold object
-kf = ____(n_splits=____, shuffle=____, random_state=5)
+
+kf = KFold(n_splits=6, shuffle=True, random_state=5)
 
 reg = LinearRegression()
 
 # Compute 6-fold cross-validation scores
-cv_scores = ____(____, ____, ____, cv=____)
+cv_scores = cross_val_score(reg, X, y, cv=kf)
 
 # Print cv_scores
-print(____)
+print(cv_scores)
 
 # Print the mean
-print(___(__))
+print(np.mean(cv_scores))
 
 # Print the standard deviation
-print(___(__))
+print(np.std(cv_scores))
 

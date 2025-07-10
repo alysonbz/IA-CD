@@ -1,0 +1,40 @@
+Apresentação:
+
+
+
+resposta errada em relação a pergunta sobre one hot encoding
+Criaram 2 classes para categorizar o chocolate
+Estão chamando o knn regressor.
+Usaram RMSE de forma errada.
+Nao sabem calcular a acurácia.
+Usaram o RMSE de forma errada.
+Responderam correto a pergunta so standscaler
+plotaram rmse x k - errado
+Não analisou correto a matriz confusão
+Não mostraram o classification report
+não respondeu sobre a análise de correlação
+Não respondeu sobre a a análise categórica
+Responderam parcialmente certo RMSE
+Acertou a pergunta sobre R2
+Conseguem analisar a reta de regressão
+
+Nota: 2,4 / 6
+
+
+Relatório
+
+  - Discussao superficial sobre os resultados obtidos
+  - Só tem a parte da classificação
+
+Nota:  1 / 2
+
+
+Código:  
+
+1 / 1
+
+Atividades:
+
+         0,7 / 1
+
+NOTA AV1:5,1

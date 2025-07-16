@@ -1,26 +1,24 @@
 # Perform the necessary imports
 import matplotlib.pyplot as plt
-
 from scipy.stats import pearsonr
 from src.utils import load_grains_dataset
 
 
+# Carregar os dados
 grains_df = load_grains_dataset()
 
+# Atribuir a 0ª coluna como largura e a 1ª como comprimento
+width = grains_df['0']
+length = grains_df['1']
 
-# Assign the 0th column of grains: width
-width = __
-
-# Assign the 1st column of grains: length
-length = __
-
-# Scatter plot width vs length
-plt.scatter(____, ____)
+# Gráfico de dispersão entre largura e comprimento
+plt.scatter(width, length)
 plt.axis('equal')
+
 plt.show()
 
-# Calculate the Pearson correlation
-correlation, pvalue = ____
+# Calcular a correlação de Pearson
+correlation, pvalue = pearsonr(width, length)
 
-# Display the correlation
+# Exibir o valor da correlação
 print(correlation)

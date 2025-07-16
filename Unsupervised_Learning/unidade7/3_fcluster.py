@@ -1,27 +1,27 @@
-# Perform the necessary imports
 import pandas as pd
-
-from scipy.cluster.hierarchy import fcluster,linkage
+from scipy.cluster.hierarchy import fcluster, linkage
 from src.utils import load_movements_price_dataset
 from sklearn.preprocessing import normalize
 
+# Carregar os dados
 movements_df = load_movements_price_dataset()
-movements = movements_df.drop(['company'],axis=1)
+movements = movements_df.drop(['company'], axis=1)
 companies = movements_df['company'].values
 
-normalized_movements = ____
+# Normalizar os dados
+normalized_movements = normalize(movements)
 
-# Calculate the linkage: mergings
-mergings =___
+# Calcular o linkage
+mergings = linkage(normalized_movements, method='complete')
 
-# Use fcluster to extract labels: labels
-labels = ___
+# Usar fcluster para extrair os rótulos dos clusters (ex: 5 clusters)
+labels = fcluster(mergings, t=5, criterion='maxclust')
 
-# Create a DataFrame with labels and varieties as columns: df
-df = __
+# Criar um DataFrame com os rótulos e os nomes das empresas
+df = pd.DataFrame({'label': labels, 'company': companies})
 
-# Create crosstab: ct
-ct = __
+# Criar uma tabela cruzada
+ct = pd.crosstab(df['label'], df['company'])
 
-# Display ct
+# Exibir a tabela
 print(ct)

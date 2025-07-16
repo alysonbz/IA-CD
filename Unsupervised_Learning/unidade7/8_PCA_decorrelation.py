@@ -1,32 +1,34 @@
+# 8
 # Import PCA
 import matplotlib.pyplot as plt
-
 from sklearn.decomposition import PCA
 from scipy.stats import pearsonr
 from src.utils import load_grains_dataset
 
-
+# Carregar os dados e remover colunas de rótulo
 grains = load_grains_dataset()
-grains = grains.drop(['variety','variety_number'],axis=1)
-# Create PCA instance: model
-model = __
+grains = grains.drop(['variety', 'variety_number'], axis=1)
 
-# Apply the fit_transform method of model to grains: pca_features
-pca_features = ____
+# Criar uma instância do PCA
+model = PCA()
 
-# Assign 0th column of pca_features: xs
-xs = ___
+# Aplicar o PCA aos dados
+pca_features = model.fit_transform(grains)
 
-# Assign 1st column of pca_features: ys
-ys = ___
+# Atribuir os componentes principais
+xs = pca_features[:, 0]
+ys = pca_features[:, 1]
 
-# Scatter plot xs vs ys
+# Gráfico de dispersão dos dois primeiros componentes
 plt.scatter(xs, ys)
+plt.xlabel("PCA Feature 1")
+plt.ylabel("PCA Feature 2")
 plt.axis('equal')
+plt.title("PCA - Grãos")
 plt.show()
 
-# Calculate the Pearson correlation of xs and ys
-correlation, pvalue = ____
+# Calcular a correlação de Pearson entre os componentes
+correlation, pvalue = pearsonr(xs, ys)
 
-# Display the correlation
-___
+# Exibir a correlação
+print("Correlação de Pearson entre PCA 1 e 2:", correlation)

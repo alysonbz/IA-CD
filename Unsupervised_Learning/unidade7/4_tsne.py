@@ -1,27 +1,27 @@
-# Import TSNE
-
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
 from src.utils import load_grains_dataset
 
+# Carregar os dados
 samples_df = load_grains_dataset()
-samples = samples_df.drop(['variety','variety_number'],axis=1)
+samples = samples_df.drop(['variety', 'variety_number'], axis=1)
 variety_numbers = samples_df['variety_number'].values
 
+# Criar uma instância do TSNE
+model = TSNE(learning_rate=200, random_state=0)
 
-# Create a TSNE instance: model
-model = __
+# Aplicar fit_transform aos dados
+tsne_features = model.fit_transform(samples)
 
-# Apply fit_transform to samples: tsne_features
-tsne_features =__
+# Selecionar a primeira e segunda dimensão do TSNE
+xs = tsne_features[:, 0]
+ys = tsne_features[:, 1]
 
-# Select the 0th feature: xs
-xs = __
-
-# Select the 1st feature: ys
-ys =__
-
-# Scatter plot, coloring by variety_numbers
-___
+# Plotar gráfico de dispersão colorido pelos rótulos das variedades
+plt.scatter(xs, ys, c=variety_numbers)
+plt.xlabel("TSNE Feature 1")
+plt.ylabel("TSNE Feature 2")
+plt.title("Visualização com t-SNE")
+plt.colorbar(label="Variety Number")
 
 plt.show()

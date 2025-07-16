@@ -6,20 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c58d933d-51b4-47d3-9bbd-41eca2c729c7" name="Changes" comment="teste">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/1_Clustering_2D_points.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/1_Clustering_2D_points.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/2_inertia.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/2_inertia.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/3_crosstab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/3_crosstab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/4_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/4_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/5_normalizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/5_normalizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/0_cluster_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/0_cluster_similarity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/1_dendogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/1_dendogram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/2_dedogram_movements.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/2_dedogram_movements.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/3_fcluster.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/3_fcluster.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/4_tsne.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/4_tsne.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/5_tsne_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/5_tsne_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/6_pearson_correlation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/6_pearson_correlation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/7_manual_pearson_correlation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/7_manual_pearson_correlation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/8_PCA_decorrelation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/8_PCA_decorrelation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/10_pca_dimention_reduction.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/10_pca_dimention_reduction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/11_apply_no_supervised_tec.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/11_apply_no_supervised_tec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/9_pca_variance_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/9_pca_variance_analysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +71,7 @@
     "Python.7_ridge_regularization.executor": "Run",
     "Python.8_lasso_regression.executor": "Run",
     "Python.9_manual_ cross_validation.executor": "Run",
+    "Python.9_pca_variance_analysis.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "jeftedamaceno",
@@ -89,7 +79,7 @@
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.6_pearson_correlation">
+  <component name="RunManager" selected="Python.9_pca_variance_analysis">
     <configuration name="0_cluster_similarity" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="IA-CD" />
       <option name="ENV_FILES" value="" />
@@ -104,28 +94,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Unsupervised_Learning/unidade7/0_cluster_similarity.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="4_pipeline" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="IA-CD" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Unsupervised_Learning/unidade6" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Unsupervised_Learning/unidade6/4_pipeline.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -200,13 +168,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="9_pca_variance_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IA-CD" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Unsupervised_Learning/unidade7" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Unsupervised_Learning/unidade7/9_pca_variance_analysis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.9_pca_variance_analysis" />
         <item itemvalue="Python.6_pearson_correlation" />
         <item itemvalue="Python.7_manual_pearson_correlation" />
         <item itemvalue="Python.5_normalizer" />
         <item itemvalue="Python.0_cluster_similarity" />
-        <item itemvalue="Python.4_pipeline" />
       </list>
     </recent_temporary>
   </component>

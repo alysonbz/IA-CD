@@ -11,16 +11,16 @@ scaled_samples = scaler.fit_transform(samples)
 
 
 # Create a PCA model with components in adequate number: pca
-pca = __
+pca = PCA(n_components=2)
 
 # Fit the PCA instance to the scaled samples
-__
+
+pca.fit(scaled_samples)
 
 # Transform the scaled samples: pca_features
-__
+pca_features =
 
 # Print the shape of pca_features
-__
+print(pca_features)
 
 #vizualize scatter plot with dimension reduced
-__

@@ -11,16 +11,20 @@ scaled_samples = scaler.fit_transform(samples)
 
 
 # Create a PCA model with components in adequate number: pca
-pca = __
+pca = PCA(n_components=2)
 
 # Fit the PCA instance to the scaled samples
-__
+pca.fit(scaled_samples)
 
 # Transform the scaled samples: pca_features
-__
+pca_features = pca.transform(scaled_samples)
 
 # Print the shape of pca_features
-__
+print(pca_features.shape)
 
-#vizualize scatter plot with dimension reduced
-__
+# Visualize scatter plot with dimension reduced
+plt.scatter(pca_features[:, 0], pca_features[:, 1])
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+plt.title('PCA Scatter Plot of Fish Dataset')
+plt.show()

@@ -8,20 +8,23 @@ samples_df = load_grains_dataset()
 samples = samples_df.drop(['variety','variety_number'],axis=1)
 variety_numbers = samples_df['variety_number'].values
 
-
 # Create a TSNE instance: model
-model = __
+model = TSNE(n_components=2, random_state=42)
 
 # Apply fit_transform to samples: tsne_features
-tsne_features =__
+tsne_features = model.fit_transform(samples)
 
 # Select the 0th feature: xs
-xs = __
+xs = tsne_features[:, 0]
 
 # Select the 1st feature: ys
-ys =__
+ys = tsne_features[:, 1]
 
 # Scatter plot, coloring by variety_numbers
-___
-
+plt.scatter(xs, ys, c=variety_numbers, cmap='viridis')
+plt.colorbar(label='Variety Number')
+plt.xlabel('TSNE Feature 1')
+plt.ylabel('TSNE Feature 2')
+plt.title('t-SNE Visualization of Grains Dataset')
 plt.show()
+

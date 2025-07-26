@@ -5,25 +5,26 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
 from src.utils import load_fish_dataset
 
+# Carrega o dataset
 samples = load_fish_dataset()
-samples = samples.drop(['specie'],axis=1)
+samples = samples.drop(['specie'], axis=1)
 
+# Cria os componentes do pipeline
+scaler = StandardScaler()
+pca = PCA(n_components=2)
 
-# Create scaler: scaler
-scaler = ___
+# Cria o pipeline corretamente
+pipeline = make_pipeline(scaler, pca)
 
-# Create a PCA instance: pca
-pca = ___
+# Ajusta o pipeline aos dados
+pipeline.fit(samples)
 
-# Create pipeline: pipeline
-pipeline = ___(__,__)
+# Acessa o PCA dentro do pipeline (último passo)
+pca_fitted = pipeline.named_steps['pca']
 
-# Fit the pipeline to 'samples'
-___
-
-# Plot the explained variances
-features = ____
-plt.bar(____, ____)
+# Plota a variância explicada
+features = range(pca.n_components)
+plt.bar(features, pca_fitted.explained_variance_)
 plt.xlabel('PCA feature')
 plt.ylabel('variance')
 plt.xticks(features)

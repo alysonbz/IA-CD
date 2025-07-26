@@ -1,38 +1,37 @@
 import pandas as pd
 
 # Perform the necessary imports
-from ____ import ____
-from ____ import ____
-from ____ import ____
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+from sklearn.pipeline import make_pipeline
 
 from src.utils import load_fish_dataset
 
+# Carregar os dados
 samples_df = load_fish_dataset()
-samples = samples_df.drop(['specie'],axis=1)
+samples = samples_df.drop(['specie'], axis=1)
 species = samples_df['specie'].values
 
+# Criar o scaler
+scaler = StandardScaler()
 
-# Create scaler: scaler
-scaler = ____
+# Criar o modelo KMeans com 4 clusters
+kmeans = KMeans(n_clusters=4, random_state=42)
 
-# Create KMeans instance: kmeans
-kmeans = ____
+# Criar o pipeline com scaler + kmeans
+pipeline = make_pipeline(scaler, kmeans)
 
-# Create pipeline: pipeline
-pipeline = ____
+# Ajustar o pipeline aos dados
+pipeline.fit(samples)
 
-# Fit the pipeline to samples
-____
+# Obter os rótulos dos clusters
+labels = pipeline.predict(samples)
 
-# Calculate the cluster labels: labels
-labels = ____
+# Criar um DataFrame com os rótulos e as espécies reais
+df = pd.DataFrame({'labels': labels, 'species': species})
 
-# Create a DataFrame with labels and species as columns: df
-df = ____
+# Criar a tabela cruzada
+ct = pd.crosstab(df['labels'], df['species'])
 
-# Create crosstab: ct
-ct = ____
-
-# Display ct
+# Mostrar a tabela
 print(ct)
-

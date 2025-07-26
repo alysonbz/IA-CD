@@ -1,33 +1,36 @@
 from src.utils import load_sales_clean_dataset
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
+
+# Carregar o dataset de vendas
 sales_df = load_sales_clean_dataset()
 
-# Import mean_squared_error
-from ____.____ import ____
+# Importar mean_squared_error
+from sklearn.metrics import mean_squared_error
 
-# Create X and y arrays
-X = sales_df.____(["____","___" ],axis=____)
-y = sales_df["____"].____
+# Criar arrays X e y
+X = sales_df.drop(["sales", "date"], axis=1)
+y = sales_df["sales"].values
 
+# Dividir em treino e teste
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-# Instantiate the model
-reg = ____
+# Instanciar o modelo
+reg = LinearRegression()
 
-# Fit the model to the data
-____
+# Ajustar o modelo aos dados
+reg.fit(X_train, y_train)
 
-# Make predictions
-y_pred = reg.____(____)
+# Fazer previsões
+y_pred = reg.predict(X_test)
 print("Predictions: {}, Actual Values: {}".format(y_pred[:2], y_test[:2]))
 
-# Compute R-squared
-r_squared = reg.____(____, ____)
+# Calcular R²
+r_squared = reg.score(X_test, y_test)
 
-# Compute RMSE
-rmse = ____(____, ____, squared=____)
+# Calcular RMSE
+rmse = mean_squared_error(y_test, y_pred, squared=False)
 
-# Print the metrics
-print("R^2: {}".format(____))
-print("RMSE: {}".format(____))
+# Exibir métricas
+print("R^2: {}".format(r_squared))
+print("RMSE: {}".format(rmse))

@@ -2,38 +2,44 @@ from src.utils import load_points
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
+# Carregar os dados
 points = load_points()
 
-# Create a KMeans instance with 3 clusters: model
-model = __(__)
+# Criar uma instância do KMeans com 3 clusters
+model = KMeans(n_clusters=3, random_state=42)
 
-test_points = points[:50,:]
-train_points = points[50:,:]
+# Separar dados de teste e treino
+test_points = points[:50, :]
+train_points = points[50:, :]
 
-# Fit model to train_points
-___
+# Ajustar o modelo aos dados de treino
+model.fit(train_points)
 
-# Determine the cluster labels of new_points: labels
-labels = __
+# Determinar os rótulos dos pontos de teste
+labels = model.predict(test_points)
 
-# Print cluster labels of new_points
+# Exibir os rótulos
 print(labels)
 
+# Separar coordenadas dos pontos de teste
+xs = test_points[:, 0]
+ys = test_points[:, 1]
 
-# Assign the columns of test_points: xs and ys
-xs = test_points[:,0]
-ys = test_points[:,1]
+# Fazer um gráfico de dispersão colorido pelos rótulos
+plt.scatter(xs, ys, c=labels, cmap='viridis', alpha=0.6)
 
-# Make a scatter plot of xs and ys, using labels to define the colors
-___
+# Obter os centróides dos clusters
+centroids = model.cluster_centers_
 
-# Assign the cluster centers: centroids
-centroids =
+# Separar as coordenadas dos centróides
+centroids_x = centroids[:, 0]
+centroids_y = centroids[:, 1]
 
-# Assign the columns of centroids: centroids_x, centroids_y
-centroids_x = centroids[:,0]
-centroids_y = centroids[:,1]
-
-# Make a scatter plot of centroids_x and centroids_y
-plt.scatter(centroids_x,centroids_y,s=50, marker = 'D')
+# Adicionar os centróides ao gráfico
+plt.scatter(centroids_x, centroids_y, s=100, marker='D', c='red', label='Centroids')
+plt.legend()
+plt.title("Clusterização dos Pontos com KMeans")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.grid(True)
 plt.show()

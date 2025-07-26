@@ -2,18 +2,20 @@ import numpy as np
 from src.utils import load_wine_dataset
 import pandas as pd
 
+# Carregar o dataset wine
 wine = load_wine_dataset()
 
+# Mostrar todas as colunas na visualização
 pd.set_option('display.max_columns', None)
 
-#print as caractéristicas estatísticas do dataset wine
-print(wine.__)
+# Print das características estatísticas do dataset wine
+print(wine.describe())
 
-## Aplique a função de nomarlização logarítmica na coluna Proline
-wine[__] = np.__(___)
-#
-# Print a variância da coluna proline
-print(___)
+# Aplique a função de normalização logarítmica na coluna Proline
+wine['Proline_log'] = np.log(wine['Proline'])
 
-# print a variância da coluna proline normalizada
-print(np.var(wine['Proline_log']))
+# Print a variância da coluna Proline original
+print("Variância de Proline (original):", np.var(wine['Proline']))
+
+# Print a variância da coluna Proline normalizada
+print("Variância de Proline (log):", np.var(wine['Proline_log']))

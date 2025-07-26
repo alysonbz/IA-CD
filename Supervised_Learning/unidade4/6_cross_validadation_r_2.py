@@ -1,28 +1,30 @@
 from src.utils import load_sales_clean_dataset
 from sklearn.linear_model import LinearRegression
 # Import the necessary modules
-from ____.____ import ____, ____
+from sklearn.model_selection import KFold, cross_val_score
+import numpy as np
 
+# Carregar o dataset
 sales_df = load_sales_clean_dataset()
-# Create X and y arrays
+
+# Criar X e y
 X = sales_df["radio"].values.reshape(-1, 1)
 y = sales_df["sales"].values
 
+# Criar um objeto KFold com 6 divisões
+kf = KFold(n_splits=6, shuffle=True, random_state=5)
 
-#Create a KFold object
-kf = ____(n_splits=____, shuffle=____, random_state=5)
-
+# Instanciar o modelo
 reg = LinearRegression()
 
-# Compute 6-fold cross-validation scores
-cv_scores = ____(____, ____, ____, cv=____)
+# Calcular as pontuações de validação cruzada
+cv_scores = cross_val_score(reg, X, y, cv=kf)
 
-# Print cv_scores
-print(____)
+# Imprimir as pontuações individuais
+print("Pontuações da validação cruzada:", cv_scores)
 
-# Print the mean
-print(___(__))
+# Imprimir a média
+print("Média das pontuações:", np.mean(cv_scores))
 
-# Print the standard deviation
-print(___(__))
-
+# Imprimir o desvio padrão
+print("Desvio padrão:", np.std(cv_scores))

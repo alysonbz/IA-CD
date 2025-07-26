@@ -1,21 +1,23 @@
 import matplotlib.pyplot as plt
 from src.utils import load_grains_splited_datadet
 
-#import linkage and dendogram
-from ___ y import __, __
+# Import linkage and dendrogram
+from scipy.cluster.hierarchy import linkage, dendrogram
 
-
-
-
+# Carregar os dados
 X_train, samples, y_train, varieties = load_grains_splited_datadet()
 
-# Calculate the linkage: mergings
-mergings = ____
+# Calcular as ligações para o dendrograma
+mergings = linkage(X_train, method='complete')
 
-# Plot the dendrogram, using varieties as labels
-dendrogram(____,
-           labels=____,
-           leaf_rotation=____,
-           leaf_font_size=____,
+# Plotar o dendrograma com os rótulos das variedades
+dendrogram(mergings,
+           labels=varieties,
+           leaf_rotation=90,
+           leaf_font_size=10,
 )
+plt.title("Dendrograma de Clusterização Hierárquica - Grãos")
+plt.xlabel("Amostras")
+plt.ylabel("Distância")
+plt.tight_layout()
 plt.show()

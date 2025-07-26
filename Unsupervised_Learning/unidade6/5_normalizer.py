@@ -6,27 +6,28 @@ from sklearn.pipeline import make_pipeline
 from sklearn.cluster import KMeans
 from src.utils import load_movements_price_dataset
 
+# Carregar os dados
 movements_df = load_movements_price_dataset()
-movements = movements_df.drop(['company'],axis=1)
+movements = movements_df.drop(['company'], axis=1)
 companies = movements_df['company'].values
 
-# Create a normalizer: normalizer
-normalizer = ____
+# Criar um normalizador
+normalizer = Normalizer()
 
-# Create a KMeans model with 10 clusters: kmeans
-kmeans = ____
+# Criar modelo KMeans com 10 clusters
+kmeans = KMeans(n_clusters=10, random_state=42)
 
-# Make a pipeline chaining normalizer and kmeans: pipeline
-pipeline = ____
+# Criar pipeline com normalizer e kmeans
+pipeline = make_pipeline(normalizer, kmeans)
 
-# Fit pipeline to the daily price movements
-____
+# Ajustar o pipeline aos dados
+pipeline.fit(movements)
 
-# Predict the cluster labels: labels
-labels = __
+# Obter os rótulos dos clusters
+labels = pipeline.predict(movements)
 
-# Create a DataFrame aligning labels and companies: df
+# Criar DataFrame com labels e empresas
 df = pd.DataFrame({'labels': labels, 'companies': companies})
 
-# Display df sorted by cluster label
-print()
+# Exibir o DataFrame ordenado pelos rótulos dos clusters
+print(df.sort_values(by='labels'))

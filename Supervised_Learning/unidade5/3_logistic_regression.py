@@ -1,22 +1,24 @@
 from src.utils import load_diabetes_clean_dataset
 from sklearn.model_selection import train_test_split
-#Import LogisticRegression
-____
+# Import LogisticRegression
+from sklearn.linear_model import LogisticRegression
 
-
+# Carregar o dataset
 diabetes_df = load_diabetes_clean_dataset()
-X = diabetes_df.drop(['diabetes'],axis=1)
+X = diabetes_df.drop(['diabetes'], axis=1)
 y = diabetes_df['diabetes'].values
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42,stratify=y)
 
+# Dividir os dados
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
 
-# Instantiate the model
-logreg = ____
+# Instanciar o modelo
+logreg = LogisticRegression()
 
-# Fit the model
-____
+# Treinar o modelo
+logreg.fit(X_train, y_train)
 
-# Predict probabilities
-y_pred_probs = logreg.____(____)[____, ____]
+# Obter as probabilidades preditas da classe 1
+y_pred_probs = logreg.predict_proba(X_test)[:, 1]
 
+# Mostrar as 10 primeiras probabilidades
 print(y_pred_probs[:10])

@@ -1,0 +1,95 @@
+Isso não é o relatório, são apenas anotações
+
+1. Introdução:
+Descrição do dataset informando suas características relevantes e informação do que se deve analisar neste neste.
+
+Sobre o Dataset:
+
+	A análise de personalidade do cliente é uma análise detalhada dos clientes ideais de uma empresa. Ajuda uma empresa a entender melhor seus clientes e facilita a modificação de produtos de acordo com as necessidades específicas, comportamentos e preocupações de diferentes tipos de clientes.
+
+	A análise da personalidade do cliente ajuda uma empresa a modificar seu produto com base em seus clientes-alvo de diferentes tipos de segmentos de clientes. Por exemplo, em vez de gastar dinheiro para comercializar um novo produto para cada cliente no banco de dados da empresa, uma empresa pode analisar qual segmento de clientes é mais provável comprar o produto e, em seguida, comercializar o produto apenas nesse segmento específico.
+
+Atributos:
+
+Pessoas:
+
+ID: Identificador do cliente
+Year_Birth: Ano de nascimento do cliente
+Education: Nível de educação do cliente
+Marital_Status: Status Civil do cliente
+Income: Renda familiar anual do cliente
+Kidhome: Número de crianças na casa do cliente
+Teenhome: Número de adolescentes na casa do cliente
+Dt_Customer: Data de inscrição do cliente com a empresa
+Recency: Número de dias desde a última compra do cliente
+Complain: 1 se o cliente reclamou nos últimos 2 anos, caso contrário
+
+Produtos:
+
+MntWines: Quantia gasta em vinhos nos últimos 2 anos
+MntFruits: Quantia gasta em frutas nos últimos 2 anos
+MntMeatProducts: Quantia gasta em produtos de carne nos últimos 2 anos
+MntFishProducts: Quantia gasta em produtos de peixe nos últimos 2 anos
+MntSweetProducts: Quantia gasta em doces nos últimos 2 anos
+MntGoldProds: Quantia gasta em ouro nos últimos 2 anos
+
+Promoção:
+
+NumDealsPurchases: Número de compras feitas com desconto
+AcceptedCmp1: 1 se o cliente aceitou a oferta na 1ª campanha, 0 caso contrário
+AcceptedCmp2: 1 se o cliente aceitou a oferta na 2ª campanha, 0 caso contrário
+AcceptedCmp3: 1 se o cliente aceitou a oferta na 3ª campanha, 0 caso contrário
+AcceptedCmp4: 1 se o cliente aceitou a oferta na 4ª campanha, 0 caso contrário
+AcceptedCmp5: 1 se o cliente aceitou a oferta na 5ª campanha, 0 caso contrário
+Response: 1 se o cliente aceitou a oferta na última campanha, 0 caso contrário
+
+Lugar:
+
+NumWebPurchases: Número de compras feitas através do site da empresa
+NumCatalogPurchases: Número de compras feitas usando um catálogo
+NumStorePurchases: Número de compras feitas diretamente nas lojas
+NumWebVisitsMonth: Número de visitas ao site da empresa no último mês
+
+Target:
+
+	Precisa executar clustering para resumir os segmentos de clientes.
+
+2. Observações:
+Algum problema que aconteceu? Alguma observação? Algum imprevisto? Se não houve problemas, deixe em branco.
+
+- Problema com o separador do csv.
+
+ESTRATÉGIA PARA REDUÇÃO DE DIMENSIONALIDADE
+Para a redução de dimensionalidade, será utilizada a Padronização (StandardScaler).
+Justificativa: PCA é sensível à escala das variáveis. A padronização garante que todas as variáveis contribuam igualmente para a análise de componentes principais, pois transforma os dados para terem média 0
+e desvio padrão 1. Isso é crucial quando as variáveis têm diferentes unidades de medida ou escalas, como é o caso deste dataset (renda, gastos, número de compras, etc.).
+Normalização (MinMaxScaler) seria mais apropriada se a distribuição dos dados fosse muito assimétrica ou se o algoritmo subsequente fosse sensível a valores fora de um intervalo específico (e.g., 0-1), o que
+não é o principal foco aqui para PCA.
+Transformações específicas (e.g., logarítmicas) seriam consideradas se houvesse variáveis com distribuições muito enviesadas que precisassem ser normalizadas antes da padronização,
+mas para a aplicação de PCA, a padronização é o passo mais crítico.
+
+IDENTIFICAÇÃO DE ATRIBUTOS REDUNDANTES (APÓS PRÉ-PROCESSAMENTO)
+Além das colunas Z_CostContact e Z_Revenue já removidas por terem variância zero, a matriz de correlação (correlation_matrix.png) será usada para identificar atributos com alta correlação (e.g., > 0.8 ou < -0.8).
+Variáveis com alta correlação positiva ou negativa indicam redundância, pois carregam informações semelhantes. Por exemplo, se 'MntWines' e 'MntMeatProducts' fossem altamente correlacionadas, uma delas poderia
+ser considerada redundante para a redução de dimensionalidade, embora ambas sejam mantidas para a interpretação semântica dos clusters.
+Neste dataset, a análise visual da matriz de correlação não aponta para correlações extremamente altas (acima de 0.9) entre as variáveis numéricas restantes que justifiquem a remoção automática antes do PCA, que já
+lida com a variância conjunta. No entanto, é importante notar que 'NumWebPurchases' e 'NumCatalogPurchases' podem ter alguma correlação com 'MntWines' e outros gastos, mas não a ponto de serem consideradas
+totalmente redundantes para o PCA.
+
+
+Compare os dois métodos sob diferentes aspectos:
+
+Preservação da variância ou estrutura
+Custo computacional
+Capacidade de visualização de agrupamentos
+Discuta vantagens e desvantagens de cada método no contexto do seu dataset.
+
+| Aspecto                                        | PCA                                                                                                                                                           | T-SNE                                                                                                                  |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **Preservação da Variância ou Estrutura**      | Preserva a **variância global** dos dados ao projetar para menos dimensões. As componentes principais explicam partes mensuráveis da variabilidade dos dados. | Não se preocupa com variância; preserva **relações locais** (distâncias pequenas) e pode distorcer estruturas globais. |
+| **Custo Computacional**                        | Muito rápido, mesmo com grandes conjuntos de dados.                                                                                                           | Muito mais lento, especialmente com muitos dados (>1000 amostras). Custo computacional elevado.                        |
+| **Capacidade de Visualização de Agrupamentos** | Capaz de mostrar tendências gerais, mas **pode não separar bem clusters se forem não lineares**.                                                              | Excelente para **visualizar agrupamentos não lineares** e complexos. Cria “ilhas” bem separadas se houver padrões.     |
+| **Interpretação dos Componentes**              | Fácil interpretar os eixos, pois são combinações lineares de variáveis originais.                                                                             | Componentes sem interpretação direta. É uma técnica puramente visual.                                                  |
+| **Sensibilidade a Ruído**                      | Relativamente robusto.                                                                                                                                        | Pode ser instável com ruídos ou hiperparâmetros mal ajustados.                                                         |
+
+

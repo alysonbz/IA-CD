@@ -11,7 +11,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
 #Carregando o dataset
-df = pd.read_csv('C:/Users/xulia/IA-CD/IA-CD/AV2/mall_ajustado.csv')
+df = pd.read_csv('mall_ajustado.csv')
 
 # Separando variáveis independentes e o alvo (cluster gerado pelo K-Means)
 X = df[['Age', 'Annual Income (k$)', 'Spending Score (1-100)']]

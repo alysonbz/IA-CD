@@ -9,7 +9,7 @@ from scipy.stats import pearsonr
 import time
 
 #Importando o csv com o pandas
-df = pd.read_csv('C:/Users/xulia/IA-CD/IA-CD/AV2/mall_ajustado.csv')
+df = pd.read_csv('mall_ajustado.csv')
 print("________________________________________________________")
 
 #criando o modelo PCA

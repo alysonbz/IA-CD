@@ -9,7 +9,7 @@ from sklearn.decomposition import PCA
 import pandas as pd
 
 #Importando o csv com o pandas
-df = pd.read_csv('C:/Users/xulia/IA-CD/IA-CD/AV2/mall_ajustado.csv')
+df = pd.read_csv('mall_ajustado.csv')
 print("________________________________________________________")
 
 pca_model = PCA(n_components=2)
@@ -85,7 +85,7 @@ plt.title('Hierárquico (Complete) - PCA')
 plt.show()
 
 df['cluster'] = labels_kmeans
-df.to_csv('C:/Users/xulia/IA-CD/IA-CD/AV2/mall_ajustado.csv', index=False)
+df.to_csv('mall_ajustado.csv', index=False)
 
 # Comparação dos métodos:
 # - O K-Means formou grupos mais compactos, com Silhouette Score de X.XX

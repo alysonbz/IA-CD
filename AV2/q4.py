@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 #Importando o CSV ajustado
-df = pd.read_csv('C:/Users/xulia/IA-CD/IA-CD/AV2/mall_ajustado.csv')
+df = pd.read_csv('mall_ajustado.csv')
 
 
 #Exibindo as médias das variáveis numéricas por cluster

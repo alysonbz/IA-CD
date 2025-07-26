@@ -9,7 +9,7 @@ from sklearn.preprocessing import StandardScaler
 
 
 #Importando o csv com o pandas
-df = pd.read_csv('C:/Users/xulia/IA-CD/IA-CD/AV2/Mall_Customers.csv')
+df = pd.read_csv('Mall_Customers.csv')
 print("________________________________________________________")
 
 Gender ={

@@ -33,7 +33,7 @@ Eryka:
 
 A: https://www.kaggle.com/datasets/uciml/mushroom-classification
 
-B:  https://www.kaggle.com/datasets/aungpyaeap/fish-market
+B:  https://www.kaggle.com/datasets/vipullrathod/fish-market
 
  
 
@@ -54,7 +54,7 @@ Madson:
 
 A: https://www.kaggle.com/datasets/whenamancodes/predict-diabities
 
-B: https://www.kaggle.com/datasets/anas123k/startup-profit-prediction
+B: https://www.kaggle.com/datasets/maajdl/yeh-concret-data
 
 
 Silas e Rick:

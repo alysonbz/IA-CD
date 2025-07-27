@@ -1,70 +1,91 @@
-import pandas as pd
-from sklearn.preprocessing import StandardScaler
-from sklearn.cluster import KMeans, AgglomerativeClustering
-from sklearn.metrics import silhouette_score
-from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
-import seaborn as sns
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
+from sklearn.decomposition import PCA
 
-# Carregar os dados (ajuste o caminho se necessário)
+# Dados ja padronizados
+# 1. K-Means: Gráfico do Cotovelo (Inertia)
+inertia = []
+silhouette_scores = []
+K_RANGE = range(2, 10)
 
-df = pd.read_excel('./AV2/dados/dados.xlsx')
-# Limpeza
-df = df.dropna()
-df = df[(df['Quantity'] > 0) & (df['UnitPrice'] > 0)]
+for k in K_RANGE:
+    km = KMeans(n_clusters=k, random_state=42)
+    labels = km.fit_predict(X_scaled)
+    inertia.append(km.inertia_)
+    score = silhouette_score(X_scaled, labels)
+    silhouette_scores.append(score)
 
-# Agrupamento por cliente
-df_grouped = df.groupby(['CustomerID', 'Country']).agg({
-    'Quantity': 'sum',
-    'UnitPrice': 'mean'
-}).reset_index()
+plt.figure(figsize=(12, 5))
 
-# Normalização
-features = df_grouped[['Quantity', 'UnitPrice']]
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(features)
+plt.subplot(1, 2, 1)
+plt.plot(K_RANGE, inertia, marker='o')
+plt.title("Gráfico do Cotovelo (Inertia)")
+plt.xlabel("Número de Clusters")
+plt.ylabel("Inertia")
 
-# K-Means - escolha do melhor k
-inertias = []
-silhouettes = []
-k_range = range(2, 7)
+plt.subplot(1, 2, 2)
+plt.plot(K_RANGE, silhouette_scores, marker='o', color='orange')
+plt.title("Silhouette Score para K-Means")
+plt.xlabel("Número de Clusters")
+plt.ylabel("Silhouette Score")
 
-for k in k_range:
-    kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
-    labels = kmeans.fit_predict(X_scaled)
-    inertias.append(kmeans.inertia_)
-    silhouettes.append(silhouette_score(X_scaled, labels))
+plt.tight_layout()
+plt.savefig("kmeans_inertia_silhouette.png")
+plt.show()
 
-best_k = k_range[silhouettes.index(max(silhouettes))]
-kmeans = KMeans(n_clusters=best_k, random_state=42, n_init=10)
-kmeans_labels = kmeans.fit_predict(X_scaled)
+# Escolher k com melhor silhouette score para kmeans
+k_best = K_RANGE[silhouette_scores.index(max(silhouette_scores))]
+print(f"K ideal pelo Silhouette Score: {k_best}")
 
-# Hierárquico
-agg_avg = AgglomerativeClustering(n_clusters=best_k, linkage='average')
-avg_labels = agg_avg.fit_predict(X_scaled)
+# Rodar K-Means com k_best
+km = KMeans(n_clusters=k_best, random_state=42)
+labels_km = km.fit_predict(X_scaled)
 
-agg_complete = AgglomerativeClustering(n_clusters=best_k, linkage='complete')
-complete_labels = agg_complete.fit_predict(X_scaled)
+# 2. Clusterização Hierárquica (average e complete)
+linked_avg = linkage(X_scaled, method='average')
+linked_complete = linkage(X_scaled, method='complete')
 
-# PCA para visualização
+plt.figure(figsize=(12, 5))
+plt.subplot(1, 2, 1)
+dendrogram(linked_avg, truncate_mode='lastp', p=12)
+plt.title("Dendrograma - Average")
+plt.subplot(1, 2, 2)
+dendrogram(linked_complete, truncate_mode='lastp', p=12)
+plt.title("Dendrograma - Complete")
+plt.tight_layout()
+plt.savefig("dendrogramas_average_complete.png")
+plt.show()
+
+# Definir número de clusters hierárquicos igual ao k_best para comparação
+labels_hier_avg = fcluster(linked_avg, t=k_best, criterion='maxclust')
+labels_hier_complete = fcluster(linked_complete, t=k_best, criterion='maxclust')
+
+# Calcular silhouette score para hierárquico average e complete
+sil_avg = silhouette_score(X_scaled, labels_hier_avg)
+sil_complete = silhouette_score(X_scaled, labels_hier_complete)
+print(f"Silhouette Hierárquico Average: {sil_avg:.4f}")
+print(f"Silhouette Hierárquico Complete: {sil_complete:.4f}")
+
+# 3. Visualização dos clusters com PCA
 pca = PCA(n_components=2)
 X_pca = pca.fit_transform(X_scaled)
 
-# DataFrame para plotagem
-df_vis = pd.DataFrame(X_pca, columns=['PC1', 'PC2'])
-df_vis['KMeans'] = kmeans_labels
-df_vis['AvgLink'] = avg_labels
-df_vis['CompleteLink'] = complete_labels
+plt.figure(figsize=(15, 4))
 
-# Visualizações
-fig, axes = plt.subplots(1, 3, figsize=(18, 5))
-sns.scatterplot(data=df_vis, x='PC1', y='PC2', hue='KMeans', ax=axes[0]).set_title('K-Means')
-sns.scatterplot(data=df_vis, x='PC1', y='PC2', hue='AvgLink', ax=axes[1]).set_title('Hierárquico - Average')
-sns.scatterplot(data=df_vis, x='PC1', y='PC2', hue='CompleteLink', ax=axes[2]).set_title('Hierárquico - Complete')
+plt.subplot(1, 3, 1)
+plt.scatter(X_pca[:, 0], X_pca[:, 1], c=labels_km, cmap='viridis', alpha=0.6)
+plt.title(f"K-Means (k={k_best})\nSilhouette: {max(silhouette_scores):.2f}")
+
+plt.subplot(1, 3, 2)
+plt.scatter(X_pca[:, 0], X_pca[:, 1], c=labels_hier_avg, cmap='plasma', alpha=0.6)
+plt.title(f"Hierárquico Average (k={k_best})\nSilhouette: {sil_avg:.2f}")
+
+plt.subplot(1, 3, 3)
+plt.scatter(X_pca[:, 0], X_pca[:, 1], c=labels_hier_complete, cmap='magma', alpha=0.6)
+plt.title(f"Hierárquico Complete (k={k_best})\nSilhouette: {sil_complete:.2f}")
+
 plt.tight_layout()
+plt.savefig("comparacao_cluster_pca.png")
 plt.show()
-
-# Métricas de avaliação
-print("Melhor k:", best_k)
-print("Inércias:", inertias)
-print("Silhouette Scores:", silhouettes)

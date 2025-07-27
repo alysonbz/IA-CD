@@ -1,0 +1,1 @@
+df = df.dropna(subset=['CustomerID', 'Description'])

@@ -23,3 +23,6 @@ print("\n",volunteer.info())
 print("\n",volunteer["locality"].isna().sum())
 volunteer_cols = volunteer.drop("Latitude""Longitude")
 print(volunteer_cols)
+
+volunteer_subset = volunteer_cols.dropna(subset=["category_desc"])
+print("\n\nShape: ",volunteer_subset.shape)

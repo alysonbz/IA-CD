@@ -9,3 +9,20 @@ df2 = load_df2_unidade1()
 
 
 print(wine.describe())
+
+
+print(df1.dropna())
+print('-'*10)
+
+print(df1.drop(['A'], axis=1))
+print('-'*10)
+
+print(df1.drop([1,2,3], axis=0))
+print('-'*10)
+
+print(df1.dropna(thresh=2))
+print('-'*10)
+
+df1.dropna(subset=['A'], inplace=True)
+df1['A'] = df1['A'].astype('int64')
+df1.info()

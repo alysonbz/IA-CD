@@ -19,10 +19,14 @@ print("\n",df1.dropna(thresh=2))
 
 
 print("\n\nShape: ",volunteer.shape)
+
 print("\n",volunteer.info())
+
 print("\n",volunteer["locality"].isna().sum())
-volunteer_cols = volunteer.drop("Latitude""Longitude")
+
+volunteer_cols = volunteer.drop(["Latitude","Longitude"],axis=1)
 print(volunteer_cols)
 
 volunteer_subset = volunteer_cols.dropna(subset=["category_desc"])
 print("\n\nShape: ",volunteer_subset.shape)
+

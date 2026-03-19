@@ -13,13 +13,16 @@ print(volunteer.info())
 print(f'Na coluna locality tem \033[1;34m{volunteer['locality'].isna().sum()}\033[m valores faltando')
 
 # Exclua as colunas Latitude e Longitude de volunteer
-
+volunteer_cols = volunteer.drop(['Latitude', 'Longitude'], axis=1)
+print(volunteer_cols)
 
 
 # Exclua as linhas com valores null da coluna category_desc de volunteer_cols
+volunteer_subset = volunteer_cols.dropna(subset=['category_desc'])
+print(volunteer_subset)
 
 
 # Print o shape do subset
-
+print(volunteer_subset.shape)
 
 

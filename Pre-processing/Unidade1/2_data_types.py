@@ -3,8 +3,8 @@ from src.utils import load_volunteer_dataset
 volunteer = load_volunteer_dataset()
 
 # Print os primeiros elementos da coluna hits
-___
-
+hits = volunteer['hits']
+print(hits.head(5))
 # Print as caracteristicas da coluna hits
 __
 

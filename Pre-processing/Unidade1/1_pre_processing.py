@@ -13,7 +13,7 @@ print("\nQuestão 2.")
 volunteer.info()
 
 # 3. mostre quantos elementos do dataset estão faltando na coluna
-# (print a quantidade de elementos que estão faltando na coluna locality.)
+# (print a quantidade de elementos que estão faltando na coluna locality)
 print("\nQuestão 3.")
 print("Valores faltantes em 'locality':", volunteer['locality'].isnull().sum())
 

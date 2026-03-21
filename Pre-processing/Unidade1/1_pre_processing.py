@@ -21,4 +21,5 @@ volunteer.cols = volunteer.drop(['Latitude', 'Longitude'], axis=1)
 volunteer_subset = volunteer.cols.dropna(subset=['category_desc'])
 
 # Print o shape do subset
+print("\nQ4")
 print(volunteer_subset.shape)

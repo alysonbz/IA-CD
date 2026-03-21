@@ -13,3 +13,4 @@ ___
 
 # Print as caracteristicas da coluna hits novamente
 ---
+print("teste")

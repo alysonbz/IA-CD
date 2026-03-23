@@ -9,3 +9,10 @@ df2 = load_df2_unidade1()
 
 
 print(wine.describe())
+print(wine.info())
+print(df1)
+print(df1.dropna())
+print(df1.drop([1,2,4]))
+print(df1.isna().sum())
+print(df1.dropna(subset=["B"]))
+print(df1.dropna(thresh=2))

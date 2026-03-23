@@ -9,7 +9,7 @@ print(volunteer["hits"].head(5))
 print(volunteer["hits"].info())
 
 # Converta a coluna hits para o tipo int
-volunteer["hits"] = volunteer["hits"].astype("int64")
+volunteer["hits"] = volunteer["hits"].astype("int32")
 print(volunteer.dtypes)
 
 # Print as caracteristicas da coluna hits novamente

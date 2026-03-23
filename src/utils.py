@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 
 
 def load_volunteer_dataset():
-    return pd.read_csv('../dataset/opportunities.csv')
+    return pd.read_csv('Pre-processing/dataset/opportunities.csv')
 
 def load_wine_dataset():
     wine = pd.read_csv('../dataset/wine.csv')

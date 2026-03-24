@@ -13,8 +13,7 @@ volunteer = volunteer_new.dropna(subset=['category_desc'])
 print(volunteer_new['category_desc'].value_counts(),'\n','\n')
 
 # Crie um DataFrame com todas as colunas, com exceção de ``category_desc``
-X = volunteer.__(__, axis=1)
-
+X = volunteer.__(__, a
 # Crie um dataframe de labels com a coluna category_desc
 y = __[['__']]
 

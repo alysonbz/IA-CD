@@ -1,5 +1,5 @@
 from src.utils import load_volunteer_dataset
-from src.utils import train_test_split
+from sklearn.model_selection import train_test_split
 
 volunteer = load_volunteer_dataset()
 

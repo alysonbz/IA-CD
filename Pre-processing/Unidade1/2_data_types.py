@@ -6,7 +6,7 @@ volunteer = load_volunteer_dataset()
 print(volunteer['hits'].head())
 
 # Print as caracteristicas da coluna hits
-print(volunteer['hits'].info())
+print(volunteer['hits'].dtype)
 
 # Converta a coluna hits para o tipo int
 volunteer['hits'] = volunteer['hits'].astype('int32')

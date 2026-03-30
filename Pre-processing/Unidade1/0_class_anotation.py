@@ -16,6 +16,16 @@ df2 = load_df2_unidade1()
 #print(df1.isna().sum())
 #print(df1.dropna(subset=["B"]))
 #print(df1.dropna(thresh=2))
-print(df2)
-print(df2.inf())
-df2["C"] = df2["C"].astype("int64")
+#print(df2)
+#print(df2.inf())
+#df2["C"] = df2["C"].astype("int64")
+
+from sklearn.model_selection import train_test_split
+
+X = volunteer.drop('category_desc', axis=1)
+y = volunteer['category_desc']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+print('Treino',y_train.value_counts())
+
+print('Teste:',y_test.value_counts())

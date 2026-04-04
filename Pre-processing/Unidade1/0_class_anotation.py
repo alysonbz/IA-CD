@@ -22,7 +22,12 @@ print("\n\nShape: ",volunteer.shape)
 
 print("\n",volunteer.info())
 
-print("\n",volunteer["locality"].isna().sum())
+lista=[]
+with open('../dataset/wine.csv', 'r') as f:
+    for linha in f.readlines()[1:]:
+        a = linha.strip().split(',')
+        for i in range(4):
+            a[i] = float(a[i])
 
 volunteer_cols = volunteer.drop(["Latitude","Longitude"],axis=1)
 print(volunteer_cols)

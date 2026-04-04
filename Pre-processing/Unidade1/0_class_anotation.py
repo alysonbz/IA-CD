@@ -73,3 +73,23 @@ def dist_euclidiana(v1,v2):
     for i in range(dim -1):
         soma += math.pow(v1[i] -v2[i],2)
     return math.sqrt(soma)
+
+def knn(treinamento, nova_amostra, K):
+    dists, len_treino = {}, len(treinamento)
+
+    for i in range(len_treino):
+        d = dist_euclidiana(treinamento[i], nova_amostra)
+        dists[i] = d
+
+    k_vizinhos = sorted(dists, key=dists.get)[:K]
+
+    qtd_c1, qtd_c2, qtd_c3 = 0, 0, 0
+    for indice in k_vizinhos:
+        if treinamento[indice][-1] == 1.0:
+            qtd_c1 += 1
+        elif treinamento[indice][-1] == 2.0:
+            qtd_c2 += 1
+        else:
+            qtd_c3 += 1
+    a = [qtd_c1, qtd_c2, qtd_c3]
+    return a.index(max(a)) + 1.0

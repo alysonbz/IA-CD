@@ -45,3 +45,24 @@ def countclasses(lista):
     return [c1, c2, c3]
 print(countclasses(lista))
 
+p=0.6
+c1,c2, c3 = countclasses(lista)
+treinamento, teste= [], []
+max_c1, max_c2, max_c3 = int(p*c1), int(p*c2), int(p*c3)
+total1 =0
+total2 =0
+total3 =0
+for lis in lista:
+    if lis[0]==1.0 and total1< max_c1:
+        treinamento.append(lis)
+        total1 +=1
+    elif lis[0]==2.0 and total2<max_c2:
+        treinamento.append(lis)
+        total2 +=1
+    elif lis[0]==3.0 and total3<max_c3:
+        treinamento.append(lis)
+        total3 +=1
+    else:
+        teste.append(lis)
+print(total1, total2, total3)
+print(len(treinamento),len(teste), len(lista))

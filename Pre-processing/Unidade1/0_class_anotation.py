@@ -66,3 +66,10 @@ for lis in lista:
         teste.append(lis)
 print(total1, total2, total3)
 print(len(treinamento),len(teste), len(lista))
+
+import math
+def dist_euclidiana(v1,v2):
+    dim, soma = len(v1), 0
+    for i in range(dim -1):
+        soma += math.pow(v1[i] -v2[i],2)
+    return math.sqrt(soma)

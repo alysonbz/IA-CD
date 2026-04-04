@@ -29,9 +29,19 @@ with open('../dataset/wine.csv', 'r') as f:
         for i in range(4):
             a[i] = float(a[i])
 
-volunteer_cols = volunteer.drop(["Latitude","Longitude"],axis=1)
-print(volunteer_cols)
-
-volunteer_subset = volunteer_cols.dropna(subset=["category_desc"])
-print("\n\nShape: ",volunteer_subset.shape)
+        lista.append(a)
+print(lista)
+def countclasses(lista):
+    c1 = 0
+    c2 = 0
+    c3 = 0
+    for i in range(len(lista)):
+        if lista[i][0] == 1.0:
+            c1 += 1
+        if lista[i][0] == 2.0:
+            c2 += 1
+        if lista[i][0] == 3.0:
+            c3 += 1
+    return [c1, c2, c3]
+print(countclasses(lista))
 

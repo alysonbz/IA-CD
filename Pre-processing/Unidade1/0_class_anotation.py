@@ -26,11 +26,12 @@ lista=[]
 with open('../dataset/wine.csv', 'r') as f:
     for linha in f.readlines()[1:]:
         a = linha.strip().split(',')
-        for i in range(4):
+        for i in range(14):
             a[i] = float(a[i])
 
         lista.append(a)
 print(lista)
+
 def countclasses(lista):
     c1 = 0
     c2 = 0
@@ -65,12 +66,13 @@ for lis in lista:
     else:
         teste.append(lis)
 print(total1, total2, total3)
+print("treino",treinamento,"\n","teste",teste)
 print(len(treinamento),len(teste), len(lista))
 
 import math
 def dist_euclidiana(v1,v2):
     dim, soma = len(v1), 0
-    for i in range(dim -1):
+    for i in range(1, dim):
         soma += math.pow(v1[i] -v2[i],2)
     return math.sqrt(soma)
 
@@ -85,9 +87,9 @@ def knn(treinamento, nova_amostra, K):
 
     qtd_c1, qtd_c2, qtd_c3 = 0, 0, 0
     for indice in k_vizinhos:
-        if treinamento[indice][-1] == 1.0:
+        if treinamento[indice][0] == 1.0:
             qtd_c1 += 1
-        elif treinamento[indice][-1] == 2.0:
+        elif treinamento[indice][0] == 2.0:
             qtd_c2 += 1
         else:
             qtd_c3 += 1

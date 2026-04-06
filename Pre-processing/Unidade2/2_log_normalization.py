@@ -10,7 +10,7 @@ pd.set_option('display.max_columns', None)
 print(wine.describe())
 
 ## Aplique a função de nomarlização logarítmica na coluna Proline
-wine['Proline_log'] = np.log('Proline')
+wine['Proline_log'] = np.log(wine['Proline'])
 #
 # Print a variância da coluna proline
 print(np.var(wine['Proline']))

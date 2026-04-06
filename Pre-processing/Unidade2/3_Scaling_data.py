@@ -1,4 +1,4 @@
-# Import StandardScaler
+#Import StandardScaler
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from src.utils import load_wine_dataset
@@ -18,7 +18,7 @@ X = wine.drop(['Quality'],axis=1)
 X_norm = scaler.fit_transform(X)
 
 #obtenha as labels da coluna Quality
-y = wine[''].__
+y = wine['Quality'].values
 
 #print a valriância de X
 print('variancia',__)

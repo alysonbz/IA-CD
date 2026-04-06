@@ -93,3 +93,10 @@ def knn(treinamento, nova_amostra, K):
             qtd_c3 += 1
     a = [qtd_c1, qtd_c2, qtd_c3]
     return a.index(max(a)) + 1.0
+
+acertos, K = 0, 1
+for amostra in teste:
+    classe = knn(treinamento, amostra, K)
+    if amostra[0]==classe:
+        acertos +=1
+print(f"Porcentagem de acertos:{ 100 * acertos / len(teste)}%")

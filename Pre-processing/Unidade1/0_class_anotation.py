@@ -41,7 +41,7 @@ def countclasses(lista):
     return [c1, c2, c3]
 print(countclasses(lista))
 
-p=0.6
+p=0.8
 c1,c2, c3 = countclasses(lista)
 treinamento, teste= [], []
 max_c1, max_c2, max_c3 = int(p*c1), int(p*c2), int(p*c3)
@@ -91,7 +91,7 @@ def knn(treinamento, nova_amostra, K):
     a = [qtd_c1, qtd_c2, qtd_c3]
     return a.index(max(a)) + 1.0
 
-acertos, K = 0, 1
+acertos, K = 0, 3
 for amostra in teste:
     classe = knn(treinamento, amostra, K)
     if amostra[0]==classe:

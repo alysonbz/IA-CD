@@ -6,8 +6,8 @@ wine = load_wine_dataset()
 
 pd.set_option('display.max_columns', None)
 
-#print as caractéristicas estatísticas do dataset wine
-print(wine.__)
+# 1. Print as características estatísticas do dataset wine
+print(wine.info)
 
 ## Aplique a função de nomarlização logarítmica na coluna Proline
 wine[__] = np.__(___)

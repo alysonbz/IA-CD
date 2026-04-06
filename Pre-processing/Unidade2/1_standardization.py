@@ -1,20 +1,31 @@
 from src.utils import load_wine_dataset
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+import numpy as np
 
 wine = load_wine_dataset()
+scaler = MinMaxScaler()
 
 X = wine.drop(['Quality'],axis=1)
-
+X = np.log(X)
 y = wine['Quality'].values
 
-# divida o dataset em treino e teste
-X_train, X_test, y_train, y_test = ____(____, ____, stratify=____, random_state=42)
+# 1. Divida o dataset em treino e teste
+X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=42)
 
-knn = KNeighborsClassifier()
+knn = KNeighborsClassifier(n_neighbors=3)
 
-# Aplique a função fit do knn
-knn.____(____, ____)
+# 2. Mostre quantos elementos do dataset estão faltando na coluna Quality
+print(wine['Quality'].isnull().sum())
 
-# mostre o acerto do algoritmo
-print(knn.____(____))
+# 3. Aplique a função fit do knn
+knn.fit(X_train, y_train)
+
+# 4. Mostre o acerto do algoritmo
+print(knn.score(X_test, y_test))
+
+wine["log_2"] = np.log(wine["X"])
+
+print("\nteste")
+print(wine)

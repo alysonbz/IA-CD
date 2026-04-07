@@ -19,7 +19,7 @@ X = volunteer.drop('category_desc', axis=1)
 y = volunteer[['category_desc']]
 
 # # Utiliza a a amostragem stratificada para separar o dataset em treino e teste
-X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=42)   # X dataset inteiro  # Y coluna target   # stratify garante que os dados terão a mesma proporção
 
 # mostre o balanceamento das classes em 'category_desc' novamente
-print(y_train.value_counts())
+print(y_train['category_desc'].value_counts())

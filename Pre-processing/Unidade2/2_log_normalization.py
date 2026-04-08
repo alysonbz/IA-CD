@@ -1,4 +1,6 @@
 import numpy as np
+from scipy.stats import describe
+
 from src.utils import load_wine_dataset
 import pandas as pd
 
@@ -10,10 +12,10 @@ pd.set_option('display.max_columns', None)
 print(wine.describe())
 
 ## Aplique a função de nomarlização logarítmica na coluna Proline
-wine['Proline'] = np.log10(wine['Proline'])
-#
+wine['Proline_log'] = np.log(wine['Proline'])
+
 # Print a variância da coluna proline
-print(wine['Proline'].var())
+print(np.var(wine['Proline']))
 
 # print a variância da coluna proline normalizada
 print(np.var(wine['Proline_log']))

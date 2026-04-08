@@ -34,7 +34,7 @@ print('Teste:',y_test.value_counts())
 
 
 
-#ATIVIDADE
+#ATIVIDADE   -  IRIS
 lista = []
 with open(r'C:\Users\Usuario\Downloads\iris\iris.data', 'r') as f:
     for linha in f.readlines():

@@ -21,19 +21,19 @@ X_norm = scaler.fit_transform(X)
 y = wine['Quality'].values
 
 #print a valriância de X
-print('variancia',__)
+print('variancia',np.var(X))
 
 #print a variânca do dataset X_norm
-print('variancia do dataset normalizado',__)
+print('variancia do dataset normalizado',np.var(X_norm))
 
 # Divida o dataset em treino e teste com amostragem estratificada
-X_train, X_test, y_train, y_test = ___(___, __, ___, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=42)
 
 #inicialize o algoritmo KNN
-knn = ___
+knn = KNeighborsClassifier()
 
 # Aplique a função fit do KNN
-knn.__(__,__)
+knn.fit(X_train, y_train)
 
 # Verifique o acerto do classificador
-print('score', knn.__(__, __))
+print('score', knn.score(X_test, y_test))

@@ -1,11 +1,25 @@
 import math
+
+
 # ------------- Pré-Processamento -----------------
 
 lista = []  # Cria uma lista vazia para armazenar todos os dados da planilha.
-with open('iris_data.csv', 'r') as f:  # "open" abre o arquivo; "r" significa read (leitura); "as f" nomeia o arquivo criado de f; "with" garante que o arquivo  será fechado automaticamente após a conclusão
+with open('iris (1)-2.csv', 'r', encoding='utf-8-sig') as f:  # "open" abre o arquivo; "r" significa read (leitura); "as f" nomeia o arquivo criado de f; "with" garante que o arquivo  será fechado automaticamente após a conclusão
     for linha in f.readlines(): # O comando readlines() lê o arquivo inteiro e divide linha por linha. E o for vai percorrer cada uma.
-        a = linha.replace('\n', ''). split(',') # Substitui o \n no final da linha por '' para limpar o texto. split(',') corta a frase toda vez que encontra uma vírgula. Ele transforma a frase em uma lista de pedaços.
-        lista.append(a) # adiciona a sub-lista criada dentro da lista principal.
+        a = linha.replace('\n', '').split(',') # Substitui o \n no final da linha por '' para limpar o texto. lstrip('\ufeff') remove o Byte Order Mark (BOM) se presente. split(',') corta a frase toda vez que encontra uma vírgula. Ele transforma a frase em uma lista de pedaços.
+
+        # Converte atributos para float
+        b = list(map(float, a[:4]))
+
+        # Converte classe para número
+        if a[4] == 'Iris-setosa':
+            classe = 1.0
+        elif a[4] == 'Iris-versicolor':
+            classe = 2.0
+        elif a[4] == 'Iris-virginica':
+            classe = 3.0
+
+        lista.append(b + [classe])
 
 # ------------ Verificando o Balanciamento --------------
 
@@ -24,7 +38,7 @@ def countclasses(lista):
 
 # ---------- Divisão de Treino e Teste ------------
 
-p = 0.6
+p = 0.6  # 60% dos dados de cada classe serão destinadas ao conj. de treino
 setosa, versicolor, virginica = countclasses(lista)
 
 treinamento, teste = [], []
@@ -35,10 +49,10 @@ total2 = 0
 total3 = 0
 
 for lis in lista:
-    if lis[-1] == 1.0 and total1<max_setosa
+    if lis[-1] == 1.0 and total1 < max_setosa:
         treinamento.append(lis)
         total1 += 1
-        elif lis[-1] == 2.0 and total2 < max_versicolor:
+    elif lis[-1] == 2.0 and total2 < max_versicolor:
         treinamento.append(lis)
         total2 += 1
     elif lis[-1] == 3.0 and total3 < max_virginica:
@@ -49,10 +63,32 @@ for lis in lista:
 
 # --------- Distância Euclidiana -----------
 
-def dist_euclidiana(v1, v2):
-    dim, soma = len(v1), 0
+def dist_euclidiana(v1, v2): # a função recebe dois vetores, nesse caso seria v1 flor do conj. treino e v2 uma flor do conj. teste
+    dim, soma = len(v1), 0  # dim descobre quantas colunas existem no dado. soma: Uma variável acumuladora que começa em zero para guardar o resultado dos cálculos.
     for i in range(dim -1):
-        soma += math.pow(vi[i], -v2[i], 2)
+        soma += math.pow(v1[i] - v2[i], 2)
+    return math.sqrt(soma)
+
+# 2. Distância Manhattan (Soma das diferenças absolutas)
+def dist_manhattan(v1, v2):
+    soma = 0
+    for i in range(len(v1) - 1):
+        soma += abs(float(v1[i]) - float(v2[i]))
+    return soma
+
+# 3. Distância Minkowski (Generalização - usaremos p=3 para o exemplo)
+def dist_minkowski(v1, v2, p=3):
+    soma = 0
+    for i in range(len(v1) - 1):
+        soma += math.pow(abs(float(v1[i]) - float(v2[i])), p)
+    return math.pow(soma, 1/p)
+
+# 4. Distância Chebyshev (A maior diferença individual)
+def dist_chebyshev(v1, v2):
+    diferencas = []
+    for i in range(len(v1) - 1):
+        diferencas.append(abs(float(v1[i]) - float(v2[i])))
+    return max(diferencas)
 
 #--------------- Aplicando KNN -------------
 
@@ -81,4 +117,4 @@ for amostra in teste:
     classe = knn(treinamento, amostra, K)
     if amostra[-1]==classe:
         acertos +=1
-print("Porcentagem de acertos:",100*acertos/len(teste))
+print("Porcentagem de acertos:", 100*acertos/len(teste))

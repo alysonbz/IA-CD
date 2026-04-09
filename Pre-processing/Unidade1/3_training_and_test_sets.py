@@ -22,4 +22,5 @@ y = volunteer["category_desc"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=42)
 
 # mostre o balanceamento das classes em 'category_desc' novamente
-print(volunteer['category_desc'].value_counts(),'\n','\n')
+print(y_train.value_counts(),'\n','\n')
+print(y_test.value_counts(),'\n','\n')

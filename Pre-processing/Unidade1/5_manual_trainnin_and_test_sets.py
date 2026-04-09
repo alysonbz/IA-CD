@@ -43,5 +43,5 @@ print(y_train.value_counts())
 print(y_test.value_counts())
 
 
-#OBS
+#OBS IMPORTANTE
 #Tive dificuldade e realizar o código, então utlizei IA para me ajudar a realizar esse código, mas também a entender como ele funciona.

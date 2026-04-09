@@ -1,5 +1,3 @@
-from statistics import variance
-
 import numpy as np
 from src.utils import load_wine_dataset
 import pandas as pd

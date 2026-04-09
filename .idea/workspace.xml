@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="39cbb528-e575-47dc-a0cb-f1069cfdad8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pre-processing/Unidade1/0_class_anotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pre-processing/Unidade1/0_class_anotation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pre-processing/Unidade1/3_training_and_test_sets.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pre-processing/Unidade1/3_training_and_test_sets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pre-processing/Unidade2/1_standardization.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pre-processing/Unidade2/1_standardization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pre-processing/Unidade2/2_log_normalization.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pre-processing/Unidade2/2_log_normalization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pre-processing/Unidade2/3_Scaling_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pre-processing/Unidade2/3_Scaling_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,21 +27,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.0_class_anotation.executor&quot;: &quot;Run&quot;,
-    &quot;Python.1_pre_processing.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2_data_types.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;mariaandrade&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/maria/Desktop/IA/IA-CD&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.0_class_anotation.executor": "Run",
+    "Python.1_pre_processing.executor": "Run",
+    "Python.1_standardization.executor": "Run",
+    "Python.2_data_types.executor": "Run",
+    "Python.2_log_normalization.executor": "Run",
+    "Python.3_Scaling_data.executor": "Run",
+    "Python.3_training_and_test_sets.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "mariaandrade",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/maria/Desktop/IA/IA-CD",
+    "settings.editor.selected.configurable": "inlay.hints"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

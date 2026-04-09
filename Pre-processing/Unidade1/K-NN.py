@@ -78,14 +78,11 @@ class KNN:
             classe = self.y_train[i]
             distancias.append((d, classe))
 
-
         distancias.sort()
-
 
         vizinhos = []
         for i in range(self.k):
             vizinhos.append(distancias[i][1])
-
 
         contagem = {}
         for classe in vizinhos:

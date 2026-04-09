@@ -19,13 +19,10 @@ knn = KNeighborsClassifier(n_neighbors=3)
 # 2. Mostre quantos elementos do dataset estão faltando na coluna Quality
 print("\nQuestão 2.")
 print(wine['Quality'].isnull().sum())
-# isnull().sum() conta quantos valores nulos existem na coluna
 
 # 3. Aplique a função fit do knn
 knn.fit(X_train, y_train)
-# fit() treina o modelo com os dados de treino
 
 # 4. Mostre o acerto do algoritmo
 print("\nQuestão 4.")
 print(knn.score(X_test, y_test))
-# score() retorna a acurácia do modelo nos dados de teste

@@ -1,30 +1,47 @@
 from src.utils import load_volunteer_dataset
+import numpy as np
 
 volunteer = load_volunteer_dataset()
 
-def train_test_split(X,y,test_size,random_seed=1):
-    #SEU CÓDIGO AQUI
-    return X_train,X_test, y_train, y_test
+def train_test_split(X, y, test_size, random_seed=1):
+    np.random.seed(random_seed)
 
+    indices = np.arange(len(X))
+    np.random.shuffle(indices)
 
-# Exclua as colunas Latitude e Longitude de volunteer
-volunteer_new = __
+    test_len = int(len(X) * test_size)
 
-# Exclua as linhas com valores null da coluna category_desc de volunteer_new
-volunteer = ___
+    indices_teste = indices[:test_len]
+    indices_treino = indices[test_len:]
 
-# mostre o balanceamento das classes em 'category_desc'
-print(___['category_desc'].__,'\n','\n')
+    X_train = X.iloc[indices_treino]
+    X_test = X.iloc[indices_teste]
+    y_train = y.iloc[indices_treino]
+    y_test = y.iloc[indices_teste]
 
-# Crie um DataFrame com todas as colunas, com exceção de ``category_desc``
-X = volunteer.__(__, axis=1)
+    return X_train, X_test, y_train, y_test
 
-# Crie um dataframe de labels com a coluna category_desc
-y = __[['__']]
+# 1. Exclua as colunas Latitude e Longitude de volunteer
+volunteer_new = volunteer.drop(["Latitude", "Longitude"], axis=1)
 
-# # Utiliza a a amostragem stratificada para separar o dataset em treino e teste
-test_size = ---
+# 2. Exclua as linhas com valores null da coluna category_desc de volunteer_new
+volunteer_new = volunteer_new.dropna(subset=["category_desc"])
+
+# 3. Mostre o balanceamento das classes em 'category_desc'
+print("\nQuestão 3.")
+print(volunteer['category_desc'].value_counts())
+
+# 5. Crie um DataFrame com todas as colunas, com exceção de category_desc
+X = volunteer.drop("category_desc", axis=1)
+
+# 6. Crie um dataframe de labels com a coluna category_desc
+y = volunteer[["category_desc"]]
+
+# 7. Utiliza a a amostragem simples para separar o dataset em treino e teste
+test_size = 0.2
 X_train, X_test, y_train, y_test = train_test_split(X,y,test_size,random_seed=1)
 
-# mostre o balanceamento das classes em 'category_desc' novamente
-___
+# 8. Mostre o balanceamento das classes em 'category_desc' novamente
+print("\nQuestão 8.")
+print(y_train['category_desc'].value_counts(), '\n')
+print(y_test['category_desc'].value_counts())

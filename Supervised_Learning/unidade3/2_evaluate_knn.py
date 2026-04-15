@@ -1,6 +1,6 @@
 from sklearn.neighbors import KNeighborsClassifier
 from src.utils import load_churn_dataset
-
+from sklearn.metrics import accuracy_score
 # Import the module
 from sklearn.model_selection import train_test_split
 
@@ -17,4 +17,10 @@ knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(X_train, y_train)
 
 # Print the accuracy
-print(knn.score(X_test, y_test))
+#print(knn.score(X_test, y_test))
+
+
+#Mostrou na aula 15/04
+y_pred = knn.predict(X_test)
+result = accuracy_score(y_test, y_pred)
+print('accuracy:', result, '5 primeiras pediçoes:', y_pred[:5])

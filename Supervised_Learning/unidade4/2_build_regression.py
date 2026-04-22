@@ -1,21 +1,19 @@
 from src.utils import load_sales_clean_dataset
-
+from sklearn.linear_model import LinearRegression
 sales_df = load_sales_clean_dataset()
-
-# Import LinearRegression
-from ____.____ import ____
-
 
 y = sales_df["sales"].values
 X = sales_df["radio"].values.reshape(-1, 1)
 
 # Create the model
-reg = ____()
+reg = LinearRegression()
 
 # Fit the model to the data
-____
+reg.fit(X, y)
 
 # Make predictions
-predictions = ____
+predictions = reg.predict(X)
 
-print(__)
+
+print("5 primeiras condiçõs preditas", predictions[:5])
+print("Valores reais", y[0:5])

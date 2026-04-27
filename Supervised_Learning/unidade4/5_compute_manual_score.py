@@ -3,16 +3,21 @@ from src.utils import processing_all_features_sales_clean
 
 #fazer manual
 def compute_RSS(predictions,y):
-    RSS = None
+    RSS = np.sum((y - predictions)**2)
     return RSS
+
 def compute_MSE(predictions,y):
-    MSE= None
+    MSE= np.mean((y - predictions)**2)
     return MSE
+
 def compute_RMSE(predictions,y):
-    RMSE = np.sqrt(___)
+    RMSE = np.sqrt(np.mean((y - predictions)**2))
     return RMSE
+
 def compute_R_squared(predictions,y):
-    r_squared = None
+    RSS = np.sum((y - predictions) ** 2)
+    TSS = np.sum((y - np.mean(y)) ** 2)
+    r_squared = 1 - (RSS / TSS)
     return r_squared
 
 

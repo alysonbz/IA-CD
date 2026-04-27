@@ -49,7 +49,7 @@ def load_diabetes_clean_dataset():
 
 def processing_sales_clean():
     sales_df = load_sales_clean_dataset()
-    y = sales_df["sales"].values
+    y = sales_df["radio"].values
     X = sales_df["tv"].values.reshape(-1, 1)
     reg = LinearRegression()
     reg.fit(X, y)

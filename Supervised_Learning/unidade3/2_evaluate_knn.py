@@ -1,3 +1,5 @@
+from unittest import result
+
 from sklearn.neighbors import KNeighborsClassifier
 from src.utils import load_churn_dataset
 
@@ -17,6 +19,10 @@ knn = KNeighborsClassifier(n_neighbors=5)
 knn = KNeighborsClassifier(n_neighbors=5)
 
 knn.fit(X_train, y_train)
+
+y_pred = knn.predict(X_test)
+
+result = knn.score(X_test, y_test)
 
 # Print the accuracy
 print(knn.score(X_test, y_test))

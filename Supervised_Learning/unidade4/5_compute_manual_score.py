@@ -2,6 +2,9 @@ import numpy as np
 from src.utils import processing_all_features_sales_clean
 
 #fazer manual
+#y - valor real
+#y barra - media dos dados (mean(y))
+#y chapéu - previsao do modelo (predictions)
 def compute_RSS(predictions,y):
     RSS = np.sum((y - predictions)**2)
     return RSS
@@ -14,6 +17,9 @@ def compute_RMSE(predictions,y):
     RMSE = np.sqrt(np.mean((y - predictions)**2))
     return RMSE
 
+#1 - F = Explicado - Mod acertou 80%
+#F = Erro - Mod errou 20%
+# R² = 1 - (soma(y - ychapeu)² / soma(y - ybarra)²) | (sao equivalentes)
 def compute_R_squared(predictions,y):
     RSS = np.sum((y - predictions) ** 2)
     TSS = np.sum((y - np.mean(y)) ** 2)

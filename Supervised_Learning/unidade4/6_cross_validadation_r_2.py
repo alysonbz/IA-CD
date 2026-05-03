@@ -8,7 +8,7 @@ from sklearn.model_selection import KFold as k
 
 sales_df = load_sales_clean_dataset()
 # Create X and y arrays
-X = sales_df["radio"].values.reshape(-1, 1)
+X = sales_df["tv"].values.reshape(-1, 1)
 y = sales_df["sales"].values
 
 

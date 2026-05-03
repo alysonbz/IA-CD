@@ -9,21 +9,23 @@ class KFold:
 
        self.n_splits = n_splits
 
-   def _compute_score(self,X,y):
-       return None
+   def _compute_score(self,obj,X,y):
+        return obj.score(X, y)
 
    def cross_val_score(self,obj,X, y):
 
         scores = []
 
         # parte 1: dividir o dataset X em n_splits vezes
-
+        X = np.array_split(X, self.n_splits)
+        y = np.array_split(y, self.n_splits)
         # parte 2: Calcular a métrica score para subset dividida na parte 1. Chamar a função _compute_score para cada subset
-
         #appendar na lista scores cada valor obtido na parte 2
+        for i in range(self.n_splits):
+            obj.fit(X[i],y[i])
+            scores.append(self._compute_score(obj,X[i],y[i]))
 
         #parte 3 - retornar a lista de scores
-
         return scores
 
 
@@ -50,3 +52,6 @@ print(np.mean(cv_scores))
 # Print the standard deviation
 print(np.std(cv_scores))
 
+#[0.9990173312535503, 0.9989317756712045, 0.9990223084518627, 0.9990721078053757, 0.9989842377615467, 0.9989535478524763]
+#0.998996884799336
+#4.654774847651377e-05

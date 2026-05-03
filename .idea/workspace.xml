@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39cbb528-e575-47dc-a0cb-f1069cfdad8c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supervised_Learning/unidade4/6_cross_validadation_r_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised_Learning/unidade4/6_cross_validadation_r_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supervised_Learning/unidade4/7_ridge_regularization.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised_Learning/unidade4/7_ridge_regularization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supervised_Learning/unidade4/8_lasso_regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised_Learning/unidade4/8_lasso_regression.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supervised_Learning/unidade4/9_manual_ cross_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised_Learning/unidade4/9_manual_ cross_validation.py" afterDir="false" />
-    </list>
+    <list default="true" id="39cbb528-e575-47dc-a0cb-f1069cfdad8c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

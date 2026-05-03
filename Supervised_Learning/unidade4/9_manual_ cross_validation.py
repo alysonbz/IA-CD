@@ -9,18 +9,40 @@ class KFold:
 
        self.n_splits = n_splits
 
-   def _compute_score(self,X,y):
-       return None
+   def _compute_score(self, obj, X_train, X_test, y_train, y_test):
+       obj.fit(X_train, y_train)
+       return obj.score(X_test, y_test)
 
    def cross_val_score(self,obj,X, y):
 
         scores = []
 
         # parte 1: dividir o dataset X em n_splits vezes
+        n_samples = len(X)
+        indices = np.arange(n_samples)
+        np.random.shuffle(indices)
+
+        fold_sizes = np.full(self.n_splits, n_samples // self.n_splits)
+        fold_sizes[:n_samples % self.n_splits] += 1
+
+        current = 0
 
         # parte 2: Calcular a métrica score para subset dividida na parte 1. Chamar a função _compute_score para cada subset
+        for fold_size in fold_sizes:
+            start, stop = current, current + fold_size
+
+            test_idx = indices[start:stop]
+            train_idx = np.concatenate((indices[:start], indices[stop:]))
+
+            X_train, X_test = X[train_idx], X[test_idx]
+            y_train, y_test = y[train_idx], y[test_idx]
+
+            score = self._compute_score(obj, X_train, X_test, y_train, y_test)
 
         #appendar na lista scores cada valor obtido na parte 2
+        scores.append(score)
+
+        current = stop
 
         #parte 3 - retornar a lista de scores
 

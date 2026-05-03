@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="39cbb528-e575-47dc-a0cb-f1069cfdad8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supervised_Learning/unidade4/1_create_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised_Learning/unidade4/1_create_features.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supervised_Learning/unidade4/2_build_regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised_Learning/unidade4/2_build_regression.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supervised_Learning/unidade4/3_visualize_predictions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised_Learning/unidade4/3_visualize_predictions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supervised_Learning/unidade4/4_fit_prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised_Learning/unidade4/4_fit_prediction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supervised_Learning/unidade4/6_cross_validadation_r_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised_Learning/unidade4/6_cross_validadation_r_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supervised_Learning/unidade4/7_ridge_regularization.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised_Learning/unidade4/7_ridge_regularization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supervised_Learning/unidade4/8_lasso_regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised_Learning/unidade4/8_lasso_regression.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supervised_Learning/unidade4/9_manual_ cross_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised_Learning/unidade4/9_manual_ cross_validation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +51,12 @@
     "Python.3_underfiting_overfiting.executor": "Run",
     "Python.3_visualize_predictions.executor": "Run",
     "Python.4_fit_prediction.executor": "Run",
+    "Python.5_compute_manual_score.executor": "Run",
     "Python.5_manual_trainnin_and_test_sets.executor": "Run",
+    "Python.6_cross_validadation_r_2.executor": "Run",
+    "Python.7_ridge_regularization.executor": "Run",
+    "Python.8_lasso_regression.executor": "Run",
+    "Python.9_manual_ cross_validation.executor": "Run",
     "Python.ATV-KNN.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",

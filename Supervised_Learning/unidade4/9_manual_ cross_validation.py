@@ -3,19 +3,36 @@ from src.utils import load_sales_clean_dataset
 from sklearn.linear_model import LinearRegression
 
 
+
 class KFold:
 
    def __init__(self,n_splits):
 
        self.n_splits = n_splits
 
-   def _compute_score(self,X,y):
-       return None
+   def _compute_score(self,model ,X_train, X_test,y_train, y_test):
+       model.fit(X_train, y_train)
+       return model.score(X_test, y_test)
 
-   def cross_val_score(self,obj,X, y):
-
+   def cross_val_score(self,model,X, y):
+        
+        fold_size = len(X) // self.n_splits
         scores = []
 
+        for i in range(self.n_splits):
+            
+            start = i * fold_size
+            end = start + fold_size
+            
+            X_test = X[start:end]
+            y_test = y[start:end]
+            
+            X_train = np.concatenate((X[:start], X[end:]), axis=0)
+            y_train = np.concatenate((y[:start], y[end:]),axis=0)
+            
+            score = self._compute_score(model, X_train, X_test, y_train, y_test)
+            scores.append(score)
+        
         # parte 1: dividir o dataset X em n_splits vezes
 
         # parte 2: Calcular a métrica score para subset dividida na parte 1. Chamar a função _compute_score para cada subset
@@ -33,7 +50,7 @@ sales_df = load_sales_clean_dataset()
 X = sales_df["tv"].values.reshape(-1, 1)
 y = sales_df["sales"].values
 
-# Create a KFold object
+#Create a KFold object
 kf = KFold(n_splits=6)
 
 reg = LinearRegression()
@@ -49,4 +66,3 @@ print(np.mean(cv_scores))
 
 # Print the standard deviation
 print(np.std(cv_scores))
-

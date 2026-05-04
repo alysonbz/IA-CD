@@ -5,25 +5,48 @@ from sklearn.linear_model import LinearRegression
 
 class KFold:
 
-   def __init__(self,n_splits):
+    def __init__(self,n_splits):
 
-       self.n_splits = n_splits
+        self.n_splits = n_splits
 
-   def _compute_score(self,X,y):
-       return None
+    def _compute_score(self, model, X_train, X_test, y_train, y_test):
+        # Treina o modelo
+        model.fit(X_train, y_train)
 
-   def cross_val_score(self,obj,X, y):
+        # Retorna o R²
+        return model.score(X_test, y_test)
+
+    def cross_val_score(self,obj,X, y):
 
         scores = []
 
+        n = len(X)
+        fold_size = n // self.n_splits
+
+        indices = np.arange(n)
+
         # parte 1: dividir o dataset X em n_splits vezes
+        for i in range(self.n_splits):
+            start = i * fold_size
+            end = start + fold_size
+
+            # Índices de teste
+            test_idx = indices[start:end]
+
+            # Índices de treino (tudo menos o teste)
+            train_idx = np.concatenate((indices[:start], indices[end:]))
+
+            X_train, X_test = X[train_idx], X[test_idx]
+            y_train, y_test = y[train_idx], y[test_idx]
 
         # parte 2: Calcular a métrica score para subset dividida na parte 1. Chamar a função _compute_score para cada subset
-
         #appendar na lista scores cada valor obtido na parte 2
+        score = self._compute_score(obj, X_train, X_test, y_train, y_test)
+
+
+        scores.append(score)
 
         #parte 3 - retornar a lista de scores
-
         return scores
 
 

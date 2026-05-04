@@ -2,6 +2,7 @@ from src.utils import load_sales_clean_dataset
 from sklearn.linear_model import LinearRegression
 # Import the necessary modules
 from sklearn.model_selection import KFold, cross_val_score
+import numpy as np
 
 sales_df = load_sales_clean_dataset()
 

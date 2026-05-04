@@ -17,13 +17,13 @@ class KFold:
         scores = []
 
         # parte 1: dividir o dataset X em n_splits vezes
-        X = np.array_split(X, self.n_splits)
-        y = np.array_split(y, self.n_splits)
+        Xn = np.array_split(X, self.n_splits)
+        yn = np.array_split(y, self.n_splits)
         # parte 2: Calcular a métrica score para subset dividida na parte 1. Chamar a função _compute_score para cada subset
         #appendar na lista scores cada valor obtido na parte 2
         for i in range(self.n_splits):
-            obj.fit(X[i],y[i])
-            scores.append(self._compute_score(obj,X[i],y[i]))
+            obj.fit(X,y)
+            scores.append(self._compute_score(obj,Xn[i],yn[i]))
 
         #parte 3 - retornar a lista de scores
         return scores
@@ -34,6 +34,7 @@ sales_df = load_sales_clean_dataset()
 # Create X and y arrays
 X = sales_df["tv"].values.reshape(-1, 1)
 y = sales_df["sales"].values
+Xn = np.array_split(X, 6)
 
 # Create a KFold object
 kf = KFold(n_splits=6)
@@ -55,3 +56,7 @@ print(np.std(cv_scores))
 #[0.9990173312535503, 0.9989317756712045, 0.9990223084518627, 0.9990721078053757, 0.9989842377615467, 0.9989535478524763]
 #0.998996884799336
 #4.654774847651377e-05
+
+#[0.9990165497769825, 0.9989266776900837, 0.999022159515457, 0.9990635067075073, 0.9989838755514087, 0.998950645063328]
+#0.9989939023841279
+#4.5911190309250246e-05

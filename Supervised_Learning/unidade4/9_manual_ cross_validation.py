@@ -9,23 +9,37 @@ class KFold:
 
        self.n_splits = n_splits
 
-   def _compute_score(self,X,y):
-       return None
+   def _compute_score(self, model, X_train, X_test, y_train, y_test):
+
+       model.fit(X_train, y_train)
+       y_pred = model.predict(X_test)
+       mse = np.mean((y_test - y_pred) ** 2)
+       return mse
 
    def cross_val_score(self,obj,X, y):
 
         scores = []
 
         # parte 1: dividir o dataset X em n_splits vezes
+        Xn = np.array_split(X, self.n_splits)
+        yn = np.array_split(y, self.n_splits)
 
-        # parte 2: Calcular a métrica score para subset dividida na parte 1. Chamar a função _compute_score para cada subset
+        # parte 2: Calcular a métrica score para subset dividida na parte 1.
+        # Chamar a função _compute_score para cada subset
+        for i in range(self.n_splits):
+            X_test = Xn[i]
+            y_test = yn[i]
 
-        #appendar na lista scores cada valor obtido na parte 2
+            X_train = np.concatenate([Xn[j] for j in range(self.n_splits) if j != i])
+            y_train = np.concatenate([yn[j] for j in range(self.n_splits) if j != i])
 
-        #parte 3 - retornar a lista de scores
+            obj.fit(X_train, y_train)
 
+            score = self._compute_score(obj, X_train, X_test, y_train, y_test)
+
+            scores.append(score)
+        # parte 3 - retornar a lista de scores
         return scores
-
 
 sales_df = load_sales_clean_dataset()
 

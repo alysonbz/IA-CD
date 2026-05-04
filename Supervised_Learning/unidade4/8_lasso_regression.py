@@ -1,4 +1,6 @@
 import matplotlib.pyplot as plt
+from pyparsing import alphas
+
 from src.utils import load_sales_clean_dataset
 
 # Import Lasso
@@ -12,10 +14,10 @@ y = sales_df["sales"].values
 sales_columns = X.columns
 
 # Instantiate a lasso regression model
-Lasso = Lasso(alpha=0.3)
+lasso = Lasso(alpha=0.3)
 
 # Compute and print the coefficients
-lasso_coef = lasso.coef_
+lasso_coef = lasso.fit(X,y).coef_
 print(lasso_coef)
 plt.bar(sales_columns, lasso_coef)
 plt.xticks(rotation=45)

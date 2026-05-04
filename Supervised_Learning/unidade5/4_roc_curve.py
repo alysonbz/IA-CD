@@ -7,7 +7,7 @@ from sklearn.metrics import roc_curve
 
 y_prob,y_test ,_= log_reg_diabetes()
 
-# Generate ROC curve values: fpr, tpr, thresholds
+# Generate ROC curve values: fpr, tpr, thresholds:
 fpr, tpr, thresholds = roc_curve(y_test, y_prob)
 
 plt.plot([0, 1], [0, 1], 'k--')

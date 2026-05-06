@@ -1,10 +1,11 @@
-import matplotlib.pyplot as pltplt.savefig("roc_curve.png")
-plt.show()
+import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings("ignore")
+
 from src.utils import log_reg_diabetes
 
 # Import roc_curve
 from sklearn.metrics import roc_curve
-
 
 y_prob, y_test, _ = log_reg_diabetes()
 
@@ -15,8 +16,10 @@ plt.plot([0, 1], [0, 1], 'k--')
 
 # Plot tpr against fpr
 plt.plot(fpr, tpr)
+
 plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
 plt.title('ROC Curve for Diabetes Prediction')
+
 plt.savefig("roc_curve.png")
 plt.show()

@@ -28,6 +28,7 @@ logreg  = LogisticRegression()
 #inicialize kfold
 kf = KFold()
 
+
 #create the parameter space
 params = {"penalty": ["l1", "l2"],
          "tol": np.linspace(0.0001, 1.0, 10),

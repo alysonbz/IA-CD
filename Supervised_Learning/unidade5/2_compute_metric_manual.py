@@ -75,6 +75,7 @@ mt = Metrics(y_pred, y_test)
 mt.set_param_classe1()
 mt.set_param_classe0()
 
+
 print("acurácia geral:", mt.compute_acuraccy())
 #
 print("recall classe 0: ", mt.compute_recall_c0())

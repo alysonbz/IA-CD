@@ -6,24 +6,38 @@ from sklearn.linear_model import LinearRegression
 class KFold:
 
    def __init__(self,n_splits):
-
        self.n_splits = n_splits
 
-   def _compute_score(self,X,y):
-       return None
+   def _compute_score(self, obj, X_train, y_train, X_test, y_test):
+       # Treina o modelo e retorna o score (R²)
+       obj.fit(X_train, y_train)
+       return obj.score(X_test, y_test)
 
-   def cross_val_score(self,obj,X, y):
-
+   def cross_val_score(self, obj, X, y):
         scores = []
 
+        # Define o tamanho de cada parte (fold)
+        n_samples = len(X)
+        fold_size = n_samples // self.n_splits
+
         # parte 1: dividir o dataset X em n_splits vezes
+        for i in range(self.n_splits):
+            start = i * fold_size
+            end = (i + 1) * fold_size if i != self.n_splits - 1 else n_samples
+
+            X_test = X[start:end]
+            y_test = y[start:end]
+
+            X_train = np.concatenate([X[:start], X[end:]])
+            y_train = np.concatenate([y[:start], y[end:]])
 
         # parte 2: Calcular a métrica score para subset dividida na parte 1. Chamar a função _compute_score para cada subset
+        score = self._compute_score(obj, X_train, y_train, X_test, y_test)
 
         #appendar na lista scores cada valor obtido na parte 2
+        scores.append(score)
 
         #parte 3 - retornar a lista de scores
-
         return scores
 
 
@@ -39,7 +53,7 @@ kf = KFold(n_splits=6)
 reg = LinearRegression()
 
 # Compute 6-fold cross-validation scores
-cv_scores = kf.cross_val_score(reg,X, y)
+cv_scores = kf.cross_val_score(reg, X, y)
 
 # Print scores
 print(cv_scores)

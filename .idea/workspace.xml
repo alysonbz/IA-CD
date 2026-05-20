@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="39cbb528-e575-47dc-a0cb-f1069cfdad8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AV2/Slide_Classificação.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AV2/Slide_Regressão.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/AV2/Slide_Regressão.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,10 +65,15 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;mariaandrade&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/maria/Desktop/IA/IA-CD&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/maria/Desktop/IA/IA-CD/AV2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\maria\Desktop\IA\IA-CD\AV2" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

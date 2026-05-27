@@ -6,18 +6,18 @@ from sklearn.cluster import KMeans
 samples_df = load_grains_dataset()
 samples = samples_df.drop(['variety','variety_number'],axis=1)
 
-ks = range(1, 6)
+ks = range(1, 12)
 inertias = []
 
 for k in ks:
     # Create a KMeans instance with k clusters: model
-    ____
+    model = KMeans(n_clusters=k)
 
     # Fit model to samples
-    ____
+    model.fit(samples)
 
     # Append the inertia to the list of inertias
-    ____
+    inertias.append(model.inertia_)
 
 # Plot ks vs inertias
 plt.plot(ks, inertias, '-o')

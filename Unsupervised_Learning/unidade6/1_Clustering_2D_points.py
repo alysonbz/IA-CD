@@ -27,7 +27,7 @@ xs = test_points[:,0]
 ys = test_points[:,1]
 
 # Make a scatter plot of xs and ys, using labels to define the colors
-plt.scatter(xs,ys, c=labels)
+plt.scatter(xs,ys, c =labels)
 
 # Assign the cluster centers: centroids
 centroids = model.cluster_centers_

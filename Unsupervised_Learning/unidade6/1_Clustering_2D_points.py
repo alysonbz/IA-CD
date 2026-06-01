@@ -1,39 +1,37 @@
-from src.utils import load_points
-import matplotlib.pyplot as plt
+import pandas as pd
+
+# Perform the necessary imports
+from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
+from sklearn.pipeline import make_pipeline
 
-points = load_points()
+from src.utils import load_fish_dataset
 
-# Create a KMeans instance with 3 clusters: model
-model = __(__)
-
-test_points = points[:50,:]
-train_points = points[50:,:]
-
-# Fit model to train_points
-___
-
-# Determine the cluster labels of new_points: labels
-labels = __
-
-# Print cluster labels of new_points
-print(labels)
+samples_df = load_fish_dataset()
+samples = samples_df.drop(['specie'],axis=1)
+species = samples_df['specie'].values
 
 
-# Assign the columns of test_points: xs and ys
-xs = test_points[:,0]
-ys = test_points[:,1]
+# Create scaler: scaler
+scaler = StandardScaler()
 
-# Make a scatter plot of xs and ys, using labels to define the colors
-___
+# Create KMeans instance: kmeans
+kmeans = KMeans()
 
-# Assign the cluster centers: centroids
-centroids =
+# Create pipeline: pipeline
+pipeline = make_pipeline(scaler, kmeans)
 
-# Assign the columns of centroids: centroids_x, centroids_y
-centroids_x = centroids[:,0]
-centroids_y = centroids[:,1]
+# Fit the pipeline to samples
+pipeline.fit(samples)
 
-# Make a scatter plot of centroids_x and centroids_y
-plt.scatter(centroids_x,centroids_y,s=50, marker = 'D')
-plt.show()
+# Calculate the cluster labels: labels
+labels = pipeline.predict(samples)
+
+# Create a DataFrame with labels and species as columns: df
+df = pd.DataFrame({'labels': labels, 'species': species})
+
+# Create crosstab: ct
+ct = pd.crosstab(df['labels'], df['species'])
+
+# Display ct
+print(ct)

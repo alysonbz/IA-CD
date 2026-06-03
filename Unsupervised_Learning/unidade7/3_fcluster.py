@@ -3,25 +3,26 @@ import pandas as pd
 
 from scipy.cluster.hierarchy import fcluster,linkage
 from src.utils import load_movements_price_dataset
-from sklearn.preprocessing import normalize
+from sklearn.preprocessing import normalize, Normalizer
 
 movements_df = load_movements_price_dataset()
 movements = movements_df.drop(['company'],axis=1)
 companies = movements_df['company'].values
 
-normalized_movements = ____
+normalized_movements = normalize(movements)
 
 # Calculate the linkage: mergings
-mergings =___
+mergings = linkage(normalized_movements, method='complete')
 
 # Use fcluster to extract labels: labels
-labels = ___
+labels = fcluster(mergings, 0.95, criterion='distance')
 
 # Create a DataFrame with labels and varieties as columns: df
-df = __
+df = pd.DataFrame({'labels': labels, 'companies': normalized_movements})
+from sklearn.cluster import KMeans
 
 # Create crosstab: ct
-ct = __
+ct = pd.crosstab(df['labels'], df['companies'])
 
 # Display ct
 print(ct)

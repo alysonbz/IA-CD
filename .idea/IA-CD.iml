@@ -7,7 +7,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.venv_novo" />
       <excludeFolder url="file://$MODULE_DIR$/new_venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.12" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.14 (IA-CD) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

@@ -8,10 +8,10 @@ movements = movements_df.drop(['company'],axis=1)
 companies = movements_df['company'].values
 
 # Normalize the movements: normalized_movements
-normalized_movements = Normalizer().fit_transform(movements)
+normalized_movements = normalize(movements)
 
 # Calculate the linkage: mergings
-mergings = linkage(normalized_movements, method='complete')
+mergings = linkage(normalized_movements, method=    'complete')
 
 # Plot the dendrogram
 dendrogram(mergings,

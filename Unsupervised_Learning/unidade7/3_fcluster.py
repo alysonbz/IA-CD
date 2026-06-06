@@ -15,14 +15,17 @@ normalized_movements = normalize(movements)
 mergings = linkage(normalized_movements, method='complete')
 
 # Use fcluster to extract labels: labels
-labels = fcluster(mergings, 0.95, criterion='distance')
+labels = fcluster(mergings,1 , criterion='distance')
 
 # Create a DataFrame with labels and varieties as columns: df
-df = pd.DataFrame({'labels': labels, 'companies': normalized_movements})
+df = pd.DataFrame({'labels': labels,
+                   'companies': companies})
 from sklearn.cluster import KMeans
 
 # Create crosstab: ct
 ct = pd.crosstab(df['labels'], df['companies'])
 
 # Display ct
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
 print(ct)

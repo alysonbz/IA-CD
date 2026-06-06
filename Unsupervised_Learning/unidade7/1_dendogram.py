@@ -15,4 +15,5 @@ dendrogram(mergings,
            labels=varieties,
            leaf_rotation=90,
            leaf_font_size=6,)
+
 plt.show()

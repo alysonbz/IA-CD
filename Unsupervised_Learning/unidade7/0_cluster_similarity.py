@@ -2,16 +2,37 @@ import numpy as np
 
 
 def compute_single_linkage(cluster1,cluster2):
-     return None
+    c1 = np.array(cluster1)
+    c2 = np.array(cluster2)
+
+    distances = np.linalg.norm(c1[:, np.newaxis, :] - c2[np.newaxis, :, :], axis=2)
+
+    return np.min(distances)
 
 def compute_complete_linkage(cluster1, cluster2):
-     return None
+    c1 = np.array(cluster1)
+    c2 = np.array(cluster2)
+
+    distances = np.linalg.norm(c1[:, np.newaxis, :] - c2[np.newaxis, :, :], axis=2)
+
+    return np.max(distances)
 
 def compute_average_linkage(cluster1, cluster2):
-     return None
+    c1 = np.array(cluster1)
+    c2 = np.array(cluster2)
+
+    distances = np.linalg.norm(c1[:, np.newaxis, :] - c2[np.newaxis, :, :], axis=2)
+
+    return np.mean(distances)
 
 def compute_centroid_linkage(cluster1,cluster2):
-    return None
+    c1 = np.array(cluster1)
+    c2 = np.array(cluster2)
+
+    centroid1 = np.mean(c1, axis=0)
+    centroid2 = np.mean(c2, axis=0)
+
+    return np.linalg.norm(centroid1 - centroid2)
 
 
 cluster1 = [[9.0,8.0],[6.0,4.0],[2.0,10.0],[3.0,6.0],[1.0,0.0]] #x1 y1

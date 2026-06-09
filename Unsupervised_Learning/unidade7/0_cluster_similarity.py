@@ -1,16 +1,16 @@
 import numpy as np
 
 
-def compute_single_linkage(cluster1,cluster2):
+def compute_single_linkage(cluster1,cluster2):  # Distância euclidiana
      return None
 
-def compute_complete_linkage(cluster1, cluster2):
+def compute_complete_linkage(cluster1, cluster2): # pegar maior distância
      return None
 
-def compute_average_linkage(cluster1, cluster2):
+def compute_average_linkage(cluster1, cluster2):  # média das distâncias
      return None
 
-def compute_centroid_linkage(cluster1,cluster2):
+def compute_centroid_linkage(cluster1,cluster2): # calcular centroid
     return None
 
 

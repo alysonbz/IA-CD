@@ -9,10 +9,10 @@ grains_df = load_grains_dataset()
 
 
 # Assign the 0th column of grains: width
-width = __
+width = grains_df[:, 0]
 
 # Assign the 1st column of grains: length
-length = __
+length = grains_df[:, 1]
 
 # Scatter plot width vs length
 plt.scatter(____, ____)

@@ -17,16 +17,14 @@ pca = PCA(n_components=2)
 pca.fit(scaled_samples)
 
 # Transform the scaled samples: pca_features
-transformed = pca.transform(samples)
+transformed = pca.transform(scaled_samples)
 
 # Print the shape of pca_features
 print(transformed.shape)
 
 #vizualize scatter plot with dimension reduced
-
-pca_features = pca.fit_transform(samples)
-xs = pca_features[:,0]
-ys = pca_features[:,1]
+xs = transformed[:,0]
+ys = transformed[:,1]
 
 plt.scatter(xs, ys)
 plt.axis('equal')

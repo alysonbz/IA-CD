@@ -5,7 +5,7 @@ from src.utils import load_fish_dataset
 from sklearn.preprocessing import LabelEncoder
 
 samples = load_fish_dataset()
-samples = samples.drop(['specie'],axis=1)
+samples = samples.drop(['specie'], axis=1)
 scaler = StandardScaler()
 scaled_samples = scaler.fit_transform(samples)
 
@@ -22,9 +22,9 @@ transformed = pca.transform(scaled_samples)
 # Print the shape of pca_features
 print(transformed.shape)
 
-#vizualize scatter plot with dimension reduced
-xs = transformed[:,0]
-ys = transformed[:,1]
+# vizualize scatter plot with dimension reduced
+xs = transformed[:, 0]
+ys = transformed[:, 1]
 
 plt.scatter(xs, ys)
 plt.show()

@@ -6,7 +6,7 @@ from sklearn.pipeline import make_pipeline
 from src.utils import load_fish_dataset
 
 samples = load_fish_dataset()
-samples = samples.drop(['specie'],axis=1)
+samples = samples.drop(['specie'], axis=1)
 
 
 # Create scaler: scaler

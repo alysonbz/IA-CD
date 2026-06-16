@@ -5,10 +5,10 @@ from src.utils import load_movements_price_dataset
 from sklearn.preprocessing import normalize
 
 # Create a TSNE instance: model
-model =  TSNE(learning_rate=500)
+model = TSNE(learning_rate=500)
 
 movements_df = load_movements_price_dataset()
-movements = movements_df.drop(['company'],axis=1)
+movements = movements_df.drop(['company'], axis=1)
 companies = movements_df['company'].values
 normalized_movements = normalize(movements)
 
@@ -19,10 +19,10 @@ tsne_features = model.fit_transform(normalized_movements)
 xs = tsne_features[:, 0]
 
 # Select the 1th feature: ys
-ys = tsne_features[:,1]
+ys = tsne_features[:, 1]
 
 # Scatter plot
-plt.scatter(xs,ys)
+plt.scatter(xs, ys)
 
 # Annotate the points
 for x, y, company in zip(xs, ys, companies):

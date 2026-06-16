@@ -5,7 +5,7 @@ from sklearn.manifold import TSNE
 from src.utils import load_grains_dataset
 
 samples_df = load_grains_dataset()
-samples = samples_df.drop(['variety','variety_number'],axis=1)
+samples = samples_df.drop(['variety', 'variety_number'], axis=1)
 variety_numbers = samples_df['variety_number'].values
 
 
@@ -13,16 +13,16 @@ variety_numbers = samples_df['variety_number'].values
 model = TSNE(learning_rate=200)
 
 # Apply fit_transform to samples: tsne_features
-tsne_features =model.fit_transform(samples)
+tsne_features = model.fit_transform(samples)
 print(tsne_features)
 
 # Select the 0th feature: xs
-xs = tsne_features[:,0]
+xs = tsne_features[:, 0]
 
 # Select the 1st feature: ys
-ys = tsne_features[:,1]
+ys = tsne_features[:, 1]
 
 # Scatter plot, coloring by variety_numbers
-plt.scatter(xs,ys, c=variety_numbers)
+plt.scatter(xs, ys, c=variety_numbers)
 
 plt.show()

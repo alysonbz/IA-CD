@@ -1,0 +1,4 @@
+﻿,situacao,melhor_k,melhor_silhouette,inertia_no_melhor_k
+0,Sem normalização,2,0.9828814261761172,177236372617.11667
+1,Z-score com log1p,2,0.3187242494474587,19316.950851944504
+2,Min-Max com log1p,2,0.37104586259811,366.38524199011766

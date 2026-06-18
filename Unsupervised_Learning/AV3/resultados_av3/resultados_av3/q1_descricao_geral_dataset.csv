@@ -1,0 +1,7 @@
+﻿,informacao,valor
+0,Quantidade de linhas no dataset original,541909
+1,Quantidade de colunas no dataset original,8
+2,Quantidade de linhas após limpeza,397884
+3,Quantidade de clientes únicos após agregação,4338
+4,Período inicial das compras,2010-12-01 08:26:00
+5,Período final das compras,2011-12-09 12:50:00

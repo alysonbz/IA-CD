@@ -1,0 +1,26 @@
+
+QUESTÃO 6 - INTERPRETAÇÃO
+
+Foram utilizados os mesmos atributos da clusterização com K-Means:
+['recency_days', 'frequency', 'total_quantity', 'monetary', 'avg_unit_price', 'num_products', 'avg_basket_value']
+
+Foi aplicada transformação logarítmica e normalização Z-score, pois a clusterização hierárquica também é baseada em distância.
+
+Foram testados os métodos de ligação:
+- complete;
+- average;
+- single.
+
+Os dendrogramas foram gerados com uma amostra de 600 clientes para facilitar a visualização. O dataset completo possui muitos clientes, o que deixaria o dendrograma visualmente poluído.
+
+O número de clusters escolhido anteriormente pelo K-Means foi:
+K = 2
+
+Melhor método hierárquico considerando Silhouette com K do K-Means:
+- Método: single
+- Silhouette Score: 0.7204
+
+Conclusão:
+A clusterização hierárquica permite analisar visualmente a associação entre as amostras por meio do dendrograma. Se o dendrograma sugere cortes próximos ao K escolhido pelo K-Means, isso confirma parcialmente os resultados anteriores. Caso contrário, indica que a estrutura dos dados é mais complexa.
+
+Neste trabalho, a clusterização hierárquica funciona como complemento ao K-Means, permitindo validar visualmente a estrutura dos agrupamentos.

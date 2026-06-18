@@ -1,0 +1,24 @@
+
+QUESTÃO 5 - INTERPRETAÇÃO
+
+Foram comparadas três situações:
+1. Clusterização sem normalização.
+2. Clusterização com transformação logarítmica e Z-score.
+3. Clusterização com transformação logarítmica e Min-Max.
+
+A transformação logarítmica foi usada porque variáveis como monetary, frequency e total_quantity possuem forte assimetria. A normalização foi avaliada porque algoritmos baseados em distância podem ser dominados por variáveis com escala maior.
+
+A análise considerou:
+- mudança nos gráficos de dispersão;
+- mudança no melhor valor de K;
+- mudança no Silhouette Score;
+- mudança na distribuição dos clusters;
+- mudança na tabela cruzada.
+
+Melhor resultado observado:
+- Situação: Sem normalização
+- Melhor K: 2
+- Melhor Silhouette Score: 0.9829
+
+Conclusão:
+A normalização é importante para este dataset, pois os atributos possuem escalas muito diferentes. Sem normalização, variáveis como monetary e total_quantity dominam o cálculo das distâncias. Com normalização, os atributos contribuem de forma mais equilibrada para a formação dos clusters.

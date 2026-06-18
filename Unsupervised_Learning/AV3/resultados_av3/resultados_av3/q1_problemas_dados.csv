@@ -1,0 +1,5 @@
+﻿,problema_verificado,quantidade
+0,CustomerID ausente,135080
+1,Notas fiscais canceladas,9288
+2,Quantity <= 0,10624
+3,UnitPrice <= 0,2517

@@ -1,0 +1,27 @@
+
+QUESTÃO 3 - INTERPRETAÇÃO
+
+Foram selecionados os seguintes atributos para a clusterização:
+['recency_days', 'frequency', 'total_quantity', 'monetary', 'avg_unit_price', 'num_products', 'avg_basket_value']
+
+Justificativa:
+Esses atributos representam comportamento de compra, frequência, valor financeiro, quantidade comprada, variedade de produtos e valor médio por compra.
+
+Pré-processamento:
+Foi aplicada transformação logarítmica log1p para reduzir assimetria e StandardScaler para padronizar os atributos. Isso é necessário porque o K-Means utiliza distância euclidiana e é sensível à escala das variáveis.
+
+Foram testados valores de K de 2 até 10.
+
+Critérios usados:
+- Método do cotovelo: análise da redução da inércia.
+- Silhouette Score: avaliação da coesão e separação dos clusters.
+
+Melhor valor de K escolhido pelo maior Silhouette Score:
+K = 2
+
+Após escolher o melhor K, o K-Means foi treinado novamente. Os clusters foram visualizados em 2D usando atributos relevantes e também em uma projeção PCA 2D, o que melhora a apresentação visual da separação dos grupos.
+
+Também foi criada uma tabela cruzada entre os clusters gerados e a variável categórica de referência country_group. Essa tabela permite verificar se os agrupamentos encontrados possuem alguma correspondência com os países dos clientes.
+
+Conclusão:
+Os clusters encontrados representam principalmente padrões de comportamento de compra. A variável categórica de país auxilia na análise, mas os grupos formados pelo K-Means tendem a refletir mais o comportamento dos clientes do que apenas sua localização.

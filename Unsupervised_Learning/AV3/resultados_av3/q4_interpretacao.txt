@@ -1,0 +1,32 @@
+
+QUESTÃO 4 - INTERPRETAÇÃO
+
+Diferença entre K-Means e DBSCAN:
+
+O K-Means exige que o número de clusters seja definido antes do treinamento. Ele tende a formar grupos compactos e aproximadamente circulares, sendo sensível à escala dos atributos e a outliers.
+
+O DBSCAN é baseado em densidade. Ele não exige informar previamente a quantidade de clusters e consegue identificar pontos considerados ruído. Porém, o resultado depende fortemente dos parâmetros eps e min_samples.
+
+Parâmetros usados no DBSCAN:
+- eps = 1.5589
+- min_samples = 14
+
+Justificativa dos parâmetros:
+O min_samples foi definido como duas vezes o número de atributos utilizados.
+O eps foi escolhido com auxílio do gráfico k-distance, usando a distância ao vizinho definido por min_samples.
+
+Resultados:
+- K-Means gerou 2 clusters.
+- DBSCAN gerou 1 clusters.
+- DBSCAN identificou 97 pontos como ruído.
+
+Comparação:
+- Quantidade de clusters: o K-Means gera exatamente K grupos; o DBSCAN encontra grupos conforme a densidade.
+- Presença de ruídos: o DBSCAN identifica ruídos; o K-Means força todos os pontos em algum cluster.
+- Formato dos agrupamentos: o K-Means favorece grupos compactos; o DBSCAN pode encontrar formatos mais irregulares.
+- Sensibilidade à escala: ambos são sensíveis à escala, por isso os dados foram normalizados.
+- Facilidade de interpretação: o K-Means é mais direto para interpretar perfis médios de clientes.
+- Relação com a variável categórica: a crosstab permite analisar se algum cluster concentra determinados países.
+
+Conclusão:
+Para este dataset, o K-Means apresentou resultado mais coerente para segmentação geral de clientes. O DBSCAN foi útil para identificar possíveis comportamentos atípicos, mas pode classificar muitos pontos como ruído dependendo da escolha de eps.

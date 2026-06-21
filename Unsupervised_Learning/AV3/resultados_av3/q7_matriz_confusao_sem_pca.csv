@@ -1,0 +1,8 @@
+﻿,Pred_Belgium,Pred_France,Pred_Germany,Pred_Other,Pred_Spain,Pred_Switzerland,Pred_United Kingdom
+Real_Belgium,0,0,0,0,0,0,7
+Real_France,0,0,0,1,0,0,25
+Real_Germany,1,0,0,0,0,0,27
+Real_Other,0,0,0,2,0,0,47
+Real_Spain,0,0,0,0,0,0,9
+Real_Switzerland,0,0,0,1,0,0,5
+Real_United Kingdom,0,0,1,10,0,0,1166

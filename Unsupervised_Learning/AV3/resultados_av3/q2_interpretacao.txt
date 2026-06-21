@@ -1,0 +1,19 @@
+
+QUESTÃO 2 - INTERPRETAÇÃO
+
+Foram escolhidos os atributos recency_days e monetary.
+
+Justificativa:
+Esses dois atributos fazem parte da lógica RFM, muito utilizada em segmentação de clientes:
+- recency_days representa há quanto tempo o cliente comprou pela última vez;
+- monetary representa quanto o cliente gastou no total.
+
+O gráfico de dispersão permite investigar visualmente se existem possíveis agrupamentos naturais entre clientes com diferentes níveis de gasto e diferentes níveis de recência.
+
+A variável categórica country_group foi usada apenas para fins de análise visual, conforme solicitado no enunciado.
+
+Observação visual:
+A separação dos grupos não é completamente clara apenas com dois atributos. É possível observar regiões com clientes de baixo gasto, clientes mais recentes e alguns clientes de alto valor, mas há sobreposição entre grupos.
+
+Conclusão:
+Os dois atributos ajudam na interpretação inicial, mas não parecem suficientes para representar toda a estrutura dos dados. Para uma análise de clusterização mais robusta, é necessário utilizar um conjunto maior de atributos.

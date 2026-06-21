@@ -1,0 +1,13 @@
+                precision    recall  f1-score   support
+
+       Belgium       0.00      0.00      0.00         7
+        France       0.00      0.00      0.00        26
+       Germany       0.00      0.00      0.00        28
+         Other       0.07      0.02      0.03        49
+         Spain       0.00      0.00      0.00         9
+   Switzerland       0.00      0.00      0.00         6
+United Kingdom       0.91      0.99      0.95      1177
+
+      accuracy                           0.90      1302
+     macro avg       0.14      0.14      0.14      1302
+  weighted avg       0.82      0.90      0.86      1302

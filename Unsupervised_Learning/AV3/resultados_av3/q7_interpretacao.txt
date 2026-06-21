@@ -1,0 +1,40 @@
+
+QUESTÃO 7 - INTERPRETAÇÃO
+
+Nesta questão, a classificação supervisionada foi conectada aos resultados do aprendizado não supervisionado. A variável-alvo usada foi:
+
+country_group
+
+Essa escolha permite avaliar se a redução de dimensionalidade preserva informações úteis para prever a categoria de referência do dataset.
+Atributos de entrada:
+['recency_days', 'frequency', 'total_quantity', 'monetary', 'avg_unit_price', 'num_products', 'avg_basket_value']
+
+Etapas realizadas:
+1. Separação entre atributos de entrada X e variável-alvo y.
+2. Aplicação de transformação logarítmica.
+3. Padronização com StandardScaler.
+4. Cálculo da matriz de covariância.
+5. Cálculo dos autovalores e autovetores.
+6. Cálculo da variância explicada.
+7. Aplicação do PCA.
+8. Treinamento do KNN com dados originais.
+9. Treinamento do mesmo KNN com dados reduzidos via PCA.
+10. Comparação usando acurácia, precisão, recall, F1-score e matriz de confusão.
+
+O PCA com preservação de 95% da variância reduziu os dados de 7 atributos originais para 5 componentes principais.
+
+Variância total preservada:
+0.9940
+
+Resultados principais:
+- Acurácia sem PCA: 0.8971
+- Acurácia com PCA: 0.8963
+- Diferença de acurácia: -0.0008
+
+Interpretação:
+O PCA reduziu a dimensionalidade dos dados ao transformar os atributos originais em componentes principais. Esses componentes concentram a maior parte da variância dos dados e podem reduzir redundância entre variáveis correlacionadas.
+
+Conclusão:
+O PCA preservou bem as informações relevantes, pois a perda de desempenho foi pequena ou inexistente.
+
+Assim, a aplicação do PCA permite avaliar se a redução dimensional mantém informações úteis para classificação e se os padrões descobertos na clusterização são preservados após a redução de dimensionalidade.

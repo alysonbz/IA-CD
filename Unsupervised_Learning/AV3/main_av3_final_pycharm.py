@@ -445,6 +445,9 @@ def questao_3(clientes, features, variavel_referencia):
     plt.savefig(RESULTS_DIR / "q3_clusters_kmeans_pca_2d.png", dpi=150)
     plt.close()
 
+
+    print("\nPERFIL DOS CLUSTERS")
+    print(perfil_clusters)
     texto = f"""
 QUESTÃO 3 - INTERPRETAÇÃO
 

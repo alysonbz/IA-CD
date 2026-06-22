@@ -8,7 +8,6 @@ samples_df = load_grains_dataset()
 samples = samples_df.drop(['variety','variety_number'],axis=1)
 variety_numbers = samples_df['variety_number'].values
 
-
 # Create a TSNE instance: model
 model = TSNE(learning_rate=100)
 

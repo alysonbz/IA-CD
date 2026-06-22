@@ -6,8 +6,9 @@
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/.venv_novo" />
       <excludeFolder url="file://$MODULE_DIR$/new_venv" />
+      <excludeFolder url="file://$MODULE_DIR$/AV3-INTELIGÊNCIA-ARTIFICIAL/.venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.12" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.14 (IA-CD) (3)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

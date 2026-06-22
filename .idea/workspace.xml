@@ -5,19 +5,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39cbb528-e575-47dc-a0cb-f1069cfdad8c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/IA-CD.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/dataset/AB_NYC_2019.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/dataset/New_York_City_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/pdf_para_apresentação/apresentação_AV3.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_1/q1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_1/q1_fig1_distribuicoes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_1/q1_fig2_mapa_bairros.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_1/q1_fig3_categoricas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_1/q1_fig4_boxplot_preco.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_1/q1_fig5_correlacao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_1/q1_fig6_ausentes_reviews.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_2/q2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_2/q2_fig1_dispersao_simples.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_2/q2_fig2_cor_roomtype.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_2/q2_fig3_log_roomtype.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_2/q2_fig4_cor_bairro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_2/q2_fig5_kde.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_2/q2_fig6_medianas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_3/q3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_3/q3_fig1_cotovelo_silhouette.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_3/q3_fig2_clusters_geo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_3/q3_fig3_clusters_price_avail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_3/q3_fig4_perfil_clusters.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_3/q3_fig5_crosstab_heatmap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_4/q4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_4/q4_fig1_kdistances.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_4/q4_fig2_geo_comparacao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_4/q4_fig3_price_avail_comparacao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_4/q4_fig4_tamanho_clusters.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_4/q4_fig5_crosstab_dbscan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_5/q5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_5/q5_fig1_cotovelo_cenarios.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_5/q5_fig2_silhouette_cenarios.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_5/q5_fig3_resumo_comparativo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_5/q5_fig4_dispersao_cenarios.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_5/q5_fig5_mapa_cenarios.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_5/q5_fig6_crosstab_cenarios.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_6/q6.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_6/q6_fig1_dendrogramas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_6/q6_fig2_dendrograma_corte.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_6/q6_fig3_silhouette_hierarquico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_6/q6_fig4_mapa_hierarquico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_6/q6_fig5_dispersao_hierarquico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_6/q6_fig6_crosstab_hierarquico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_7/q7.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_7/q7_fig1_pca_variancia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_7/q7_fig2_biplot_pca.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_7/q7_fig3_metricas_comparativo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_7/q7_fig4_confusao_knn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_7/q7_fig5_confusao_rf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AV3/questao_7/q7_fig6_heatmap_metricas.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/1_Clustering_2D_points.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/1_Clustering_2D_points.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/2_inertia.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/2_inertia.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/3_crosstab.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/3_crosstab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/3b_cluster_fish.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/3b_cluster_fish.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/4_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/4_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/5_normalizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/5_normalizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/Aula15_Aprendizado_não_supervisionado.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade6/Aula15_Aprendizado_não_supervisionado.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/1_dendogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/1_dendogram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/2_dedogram_movements.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/2_dedogram_movements.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/3_fcluster.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/3_fcluster.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/4_tsne.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/4_tsne.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/5_tsne_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/5_tsne_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/10_pca_dimention_reduction.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/10_pca_dimention_reduction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/11_apply_no_supervised_tec.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/11_apply_no_supervised_tec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/6_pearson_correlation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/6_pearson_correlation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/7_manual_pearson_correlation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/7_manual_pearson_correlation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/8_PCA_decorrelation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/8_PCA_decorrelation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/9_pca_variance_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsupervised_Learning/unidade7/9_pca_variance_analysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,55 +87,65 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.0_class_anotation.executor&quot;: &quot;Run&quot;,
-    &quot;Python.1_confusion_matrix.executor&quot;: &quot;Run&quot;,
-    &quot;Python.1_create_features.executor&quot;: &quot;Run&quot;,
-    &quot;Python.1_dendogram.executor&quot;: &quot;Run&quot;,
-    &quot;Python.1_k-Nearest-Neighbors-Fit.executor&quot;: &quot;Run&quot;,
-    &quot;Python.1_pre_processing.executor&quot;: &quot;Run&quot;,
-    &quot;Python.1_standardization.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2_build_regression.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2_data_types.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2_dedogram_movements.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2_evaluate_knn.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2_log_normalization.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3_Scaling_data.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3_logistic_regression.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3_training_and_test_sets.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3_underfiting_overfiting.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3_visualize_predictions.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4_fit_prediction.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4_pipeline.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4_roc_curve.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4_tsne.executor&quot;: &quot;Run&quot;,
-    &quot;Python.5_auc.executor&quot;: &quot;Run&quot;,
-    &quot;Python.5_compute_manual_score.executor&quot;: &quot;Run&quot;,
-    &quot;Python.5_manual_trainnin_and_test_sets.executor&quot;: &quot;Run&quot;,
-    &quot;Python.5_normalizer.executor&quot;: &quot;Run&quot;,
-    &quot;Python.5_tsne_2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.6_cross_validadation_r_2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.7_ridge_regularization.executor&quot;: &quot;Run&quot;,
-    &quot;Python.8_lasso_regression.executor&quot;: &quot;Run&quot;,
-    &quot;Python.9_manual_ cross_validation.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ATV-KNN.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;mariaandrade&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/maria/Desktop/IA/IA-CD/Unsupervised_Learning/unidade7&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.0_class_anotation.executor": "Run",
+    "Python.11_apply_no_supervised_tec.executor": "Run",
+    "Python.1_confusion_matrix.executor": "Run",
+    "Python.1_create_features.executor": "Run",
+    "Python.1_dendogram.executor": "Run",
+    "Python.1_k-Nearest-Neighbors-Fit.executor": "Run",
+    "Python.1_pre_processing.executor": "Run",
+    "Python.1_standardization.executor": "Run",
+    "Python.2_build_regression.executor": "Run",
+    "Python.2_data_types.executor": "Run",
+    "Python.2_dedogram_movements.executor": "Run",
+    "Python.2_evaluate_knn.executor": "Run",
+    "Python.2_log_normalization.executor": "Run",
+    "Python.3_Scaling_data.executor": "Run",
+    "Python.3_logistic_regression.executor": "Run",
+    "Python.3_training_and_test_sets.executor": "Run",
+    "Python.3_underfiting_overfiting.executor": "Run",
+    "Python.3_visualize_predictions.executor": "Run",
+    "Python.4_fit_prediction.executor": "Run",
+    "Python.4_pipeline.executor": "Run",
+    "Python.4_roc_curve.executor": "Run",
+    "Python.4_tsne.executor": "Run",
+    "Python.5_auc.executor": "Run",
+    "Python.5_compute_manual_score.executor": "Run",
+    "Python.5_manual_trainnin_and_test_sets.executor": "Run",
+    "Python.5_normalizer.executor": "Run",
+    "Python.5_tsne_2.executor": "Run",
+    "Python.6_cross_validadation_r_2.executor": "Run",
+    "Python.6_pearson_correlation.executor": "Run",
+    "Python.7_manual_pearson_correlation.executor": "Run",
+    "Python.7_ridge_regularization.executor": "Run",
+    "Python.8_PCA_decorrelation.executor": "Run",
+    "Python.8_lasso_regression.executor": "Run",
+    "Python.9_manual_ cross_validation.executor": "Run",
+    "Python.9_pca_variance_analysis.executor": "Run",
+    "Python.ATV-KNN.executor": "Run",
+    "Python.q1.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "mariaandrade",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/maria/Desktop/IA/IA-CD",
+    "settings.editor.selected.configurable": "inlay.hints"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\maria\Desktop\IA\IA-CD" />
+      <recent name="C:\Users\maria\Desktop\IA\IA-CD\Pre-processing" />
       <recent name="C:\Users\maria\Desktop\IA\IA-CD\Unsupervised_Learning\unidade7" />
       <recent name="C:\Users\maria\Desktop\IA\IA-CD\AV2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\maria\Desktop\IA\IA-CD" />
       <recent name="C:\Users\maria\Desktop\IA\IA-CD\Unsupervised_Learning\unidade6" />
       <recent name="C:\Users\maria\Desktop\IA\IA-CD\Unsupervised_Learning\unidade5" />
     </key>

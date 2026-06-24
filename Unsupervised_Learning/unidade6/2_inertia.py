@@ -10,16 +10,10 @@ ks = range(1, 6)
 inertias = []
 
 for k in ks:
-    # Create a KMeans instance with k clusters: model
-    ____
+    model = KMeans(n_clusters=k)
+    model.fit(samples)
+    inertias.append(model.inertia_)
 
-    # Fit model to samples
-    ____
-
-    # Append the inertia to the list of inertias
-    ____
-
-# Plot ks vs inertias
 plt.plot(ks, inertias, '-o')
 plt.xlabel('number of clusters, k')
 plt.ylabel('inertia')
